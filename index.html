@@ -16,7 +16,7 @@
   <meta property="og:title" content="Studio Anja: voetreflex en holistische massage in Uden">
   <meta property="og:description" content="Een warme, rustige praktijk in Uden waar je even mag loslaten en opladen.">
   <meta property="og:url" content="https://studio-anja.nl/">
-  <meta property="og:image" content="https://studio-anja.nl/assets/img/studio-anja-praktijk-uden-1600.webp">
+  <meta property="og:image" content="https://studio-anja.nl/assets/img/studio-anja-praktijk-uden-breed-1200.webp">
 
   <!-- Icoontje in het browsertabblad -->
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
@@ -43,7 +43,7 @@
     "description": "Praktijk voor voetreflextherapie en holistische total body massage in Uden.",
     "url": "https://studio-anja.nl/",
     "logo": "https://studio-anja.nl/assets/img/logo-studio-anja.webp",
-    "image": "https://studio-anja.nl/assets/img/studio-anja-praktijk-uden-1600.webp",
+    "image": "https://studio-anja.nl/assets/img/studio-anja-praktijk-uden-breed-1200.webp",
     "telephone": "+31625100512",
     "email": "anja@studio-anja.nl",
     "priceRange": "€50 - €90",
@@ -105,12 +105,176 @@
 
   <!-- ============ INHOUD ============ -->
   <main id="inhoud">
-    <!-- De homepage wordt in fase 3 gebouwd. Dit blok is tijdelijk. -->
-    <section class="sectie" style="padding-top: calc(var(--header-h) + var(--sectie)); min-height: 140vh;">
-      <div class="container reveal">
-        <span class="bovenkop">Fase 2</span>
-        <h1>Hier komt de homepage</h1>
-        <p>Dit is een tijdelijke pagina om de header, het menu en de footer te testen.</p>
+    <!-- ===== Hero: grote foto bovenaan ===== -->
+    <!-- <picture> kiest de juiste foto: liggend op brede schermen, staand op telefoons -->
+    <section class="hero">
+      <picture>
+        <source media="(min-width: 701px)" srcset="assets/img/studio-anja-praktijk-uden-breed-1200.webp 1200w, assets/img/studio-anja-praktijk-uden-breed-2000.webp 2000w" sizes="100vw">
+        <img class="hero__foto" src="assets/img/studio-anja-praktijk-uden-1600.webp" srcset="assets/img/studio-anja-praktijk-uden-800.webp 600w, assets/img/studio-anja-praktijk-uden-1600.webp 1200w" sizes="100vw" alt="Behandelruimte van Studio Anja met opgerolde roze handdoeken, een rozenkwarts en een grote paardenbloem op de muur" width="1200" height="1600" fetchpriority="high">
+      </picture>
+
+      <div class="container hero__tekst">
+        <span class="bovenkop reveal">Studio Anja · Uden</span>
+        <h1 class="reveal" style="--vertraging: .1s">Voetreflex en holistische massage <em>in Uden</em></h1>
+        <p class="reveal" style="--vertraging: .2s">Een warme en rustige plek waar je even mag loslaten en opladen.</p>
+      </div>
+
+      <svg class="golf" viewBox="0 0 1440 120" preserveAspectRatio="none" style="--naar: var(--mauve)" aria-hidden="true"><path d="M0,70 C180,115 380,118 560,92 C760,62 900,18 1100,26 C1260,32 1360,62 1440,78 L1440,120 L0,120 Z"/></svg>
+    </section>
+
+    <!-- ===== Voetreflex ===== -->
+    <section class="behandeling behandeling--mauve" aria-labelledby="titel-voetreflex">
+      <div class="container behandeling__grid">
+        <div class="behandeling__foto boog reveal">
+          <img src="assets/img/voetreflex-behandeling-uden-800.webp" srcset="assets/img/voetreflex-behandeling-uden-800.webp 600w, assets/img/voetreflex-behandeling-uden-1600.webp 1200w" sizes="(max-width: 800px) 340px, 460px" alt="Anja behandelt de voet van een cliënt tijdens een voetreflexbehandeling" width="600" height="800" loading="lazy">
+        </div>
+
+        <div class="behandeling__tekst reveal" style="--vertraging: .15s">
+          <h2 id="titel-voetreflex">Voetreflex</h2>
+          <p class="label-prijs"><span>60 minuten</span><span aria-hidden="true">·</span><span>€50</span></p>
+          <p>Voetreflextherapie is een holistische behandelvorm waarbij door middel van drukpunttechnieken op specifieke zones in de voet wordt gewerkt aan het herstellen van de balans in lichaam en geest. Via de reflexzones staat elk orgaan en lichaamssysteem in verbinding met de voet, waardoor gerichte druk bijdraagt aan ontspanning en het stimuleren van het zelfherstellend vermogen.</p>
+          <p>Voetreflextherapie kan ondersteuning bieden bij:</p>
+          <ul class="lijst-zacht">
+            <li>Stressgerelateerde spanningsklachten</li>
+            <li>Hoofdpijn en migraine</li>
+            <li>Spijsverteringsproblemen</li>
+            <li>Hormonale disbalans</li>
+            <li>Slaapproblemen en vermoeidheid</li>
+            <li>Spier- en gewrichtsklachten</li>
+          </ul>
+          <a class="link-pijl" href="behandelingen/#voetreflex">Zo verloopt een voetreflexbehandeling</a>
+        </div>
+      </div>
+    </section>
+
+    <svg class="golf golf--gespiegeld" viewBox="0 0 1440 120" preserveAspectRatio="none" style="--van: var(--mauve); --naar: var(--salie)" aria-hidden="true"><path d="M0,80 C220,20 470,14 720,58 C960,100 1200,112 1440,48 L1440,120 L0,120 Z"/></svg>
+
+    <!-- ===== Holistische total body massage ===== -->
+    <section class="behandeling behandeling--salie" aria-labelledby="titel-massage">
+      <div class="container behandeling__grid">
+        <div class="behandeling__foto boog reveal">
+          <img src="assets/img/holistische-massage-uden-800.webp" srcset="assets/img/holistische-massage-uden-800.webp 800w, assets/img/holistische-massage-uden-1600.webp 1600w" sizes="(max-width: 800px) 340px, 460px" alt="Anja masseert met beide handen de rug van een cliënt tijdens een holistische total body massage" width="800" height="600" loading="lazy" style="object-position: 62% 50%">
+        </div>
+
+        <div class="behandeling__tekst reveal" style="--vertraging: .15s">
+          <h2 id="titel-massage">Holistische total body massage</h2>
+          <p class="label-prijs"><span>60 minuten</span><span aria-hidden="true">·</span><span>€60</span></p>
+          <p>Holistische massage is een behandelmethode waarbij met verschillende massagetechnieken wordt gewerkt aan ontspanning, het verminderen van spanning en het ondersteunen van het natuurlijke herstelvermogen van het lichaam.</p>
+          <p>Holistische massage kan ondersteuning bieden bij:</p>
+          <ul class="lijst-zacht">
+            <li>Stressgerelateerde spanningsklachten</li>
+            <li>Nek-, schouder- en rugklachten</li>
+            <li>Spier- en gewrichtsklachten</li>
+            <li>Vermoeidheid en overbelasting</li>
+            <li>Slaapproblemen</li>
+            <li>Onrust en spanning</li>
+          </ul>
+          <a class="link-pijl" href="behandelingen/#massage">Zo verloopt een massage</a>
+        </div>
+      </div>
+    </section>
+
+    <svg class="golf" viewBox="0 0 1440 120" preserveAspectRatio="none" style="--van: var(--salie); --naar: var(--bg)" aria-hidden="true"><path d="M0,60 C200,110 420,112 640,84 C860,56 1020,20 1220,30 C1330,36 1400,52 1440,60 L1440,120 L0,120 Z"/></svg>
+
+    <!-- ===== Over Anja ===== -->
+    <section class="sectie intro-anja" aria-labelledby="titel-anja">
+      <div class="container intro-anja__grid">
+        <div class="intro-anja__foto reveal">
+          <img src="assets/img/anja-van-lanen-portret-800.webp" srcset="assets/img/anja-van-lanen-portret-800.webp 600w, assets/img/anja-van-lanen-portret-1600.webp 1200w" sizes="(max-width: 800px) 90vw, 50vw" alt="Anja van Lanen-van den Acker leunt lachend op de behandeltafel in haar praktijk" width="600" height="800" loading="lazy">
+        </div>
+
+        <div class="intro-anja__kaart reveal" style="--vertraging: .15s">
+          <span class="bovenkop">Welkom</span>
+          <h2 id="titel-anja">Over Anja</h2>
+          <p>Welkom bij Studio Anja, praktijk voor voetreflextherapie en holistische massage in Uden. Mijn naam is Anja van Lanen-van den Acker en mijn passie is om mensen te helpen meer rust, balans en ontspanning te ervaren. In mijn praktijk staat persoonlijke aandacht centraal. Of je nu komt met lichamelijke klachten, stress, vermoeidheid of simpelweg behoefte hebt aan een moment voor jezelf, iedere behandeling wordt afgestemd op wat jij op dat moment nodig hebt.</p>
+          <p>Studio Anja is een warme en rustige plek waar je even mag loslaten en opladen. Door mijn kennis van voetreflextherapie, holistische massage en voortdurende bijscholing bied ik behandelingen die gericht zijn op zowel ontspanning als het ondersteunen van het zelfherstellend vermogen van het lichaam. Mijn doel is dat je na iedere behandeling met meer rust in je hoofd, ontspanning in je lichaam en nieuwe energie de deur uitgaat.</p>
+          <a class="link-pijl" href="over-mij/">Meer over mij en mijn praktijk</a>
+        </div>
+      </div>
+    </section>
+
+    <svg class="golf golf--gespiegeld" viewBox="0 0 1440 120" preserveAspectRatio="none" style="--van: var(--bg); --naar: var(--mauve-zacht)" aria-hidden="true"><path d="M0,70 C180,115 380,118 560,92 C760,62 900,18 1100,26 C1260,32 1360,62 1440,78 L1440,120 L0,120 Z"/></svg>
+
+    <!-- ===== Voordelen ===== -->
+    <section class="sectie voordelen" aria-labelledby="titel-voordelen" style="padding-top: clamp(2rem, 5vw, 4rem)">
+      <div class="container">
+        <div class="voordelen__intro reveal">
+          <h2 id="titel-voordelen">Wat een behandeling je kan brengen</h2>
+        </div>
+
+        <ul class="voordelen__lijst">
+          <li class="reveal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z"/><path d="M5 19l8-8"/></svg>
+            Diepe ontspanning
+          </li>
+          <li class="reveal" style="--vertraging: .08s">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/><path d="M3 15c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/></svg>
+            Vermindering van stress
+          </li>
+          <li class="reveal" style="--vertraging: .16s">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>
+            Betere doorbloeding
+          </li>
+          <li class="reveal" style="--vertraging: .24s">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a4.5 4.5 0 0 1 0 9 4.5 4.5 0 0 0 0 9"/></svg>
+            Ondersteuning hormonale balans
+          </li>
+          <li class="reveal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+            Betere nachtrust
+          </li>
+          <li class="reveal" style="--vertraging: .08s">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+            Pijnverlichting
+          </li>
+          <li class="reveal" style="--vertraging: .16s">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-9"/><path d="M12 12C12 8 9 5 5 5c0 4 3 7 7 7z"/><path d="M12 14c0-3 2.5-5.5 6-5.5 0 3-2.5 5.5-6 5.5z"/></svg>
+            Versterking zelfherstellend vermogen
+          </li>
+          <li class="reveal" style="--vertraging: .24s">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+            Meer energie en vitaliteit
+          </li>
+        </ul>
+
+        <p class="voordelen__noot reveal">Een behandeling bij Studio Anja is een aanvulling op reguliere zorg, nooit een vervanging. Ben je onder behandeling bij een arts of specialist? Meld dit dan bij de intake, zodat ik daar rekening mee kan houden.</p>
+      </div>
+    </section>
+
+    <svg class="golf" viewBox="0 0 1440 120" preserveAspectRatio="none" style="--van: var(--mauve-zacht); --naar: var(--bg-roze)" aria-hidden="true"><path d="M0,80 C220,20 470,14 720,58 C960,100 1200,112 1440,48 L1440,120 L0,120 Z"/></svg>
+
+    <!-- ===== Cadeaubon en strippenkaart ===== -->
+    <section class="sectie cadeau" aria-labelledby="titel-cadeau" style="background: var(--bg-roze)">
+      <div class="container cadeau__grid">
+        <div class="cadeau__foto boog reveal">
+          <img src="assets/img/cadeaubon-geniet-vandaag-800.webp" srcset="assets/img/cadeaubon-geniet-vandaag-800.webp 450w, assets/img/cadeaubon-geniet-vandaag-1600.webp 900w" sizes="400px" alt="Tegeltje met de tekst 'Geniet vandaag, herhaal 't morgen' naast een rozenkwarts en opgerolde handdoeken" width="450" height="800" loading="lazy">
+        </div>
+
+        <div>
+          <div class="reveal">
+            <span class="bovenkop">Cadeau en voordeel</span>
+            <h2 id="titel-cadeau">Geef rust cadeau</h2>
+            <p>Gun je iemand een moment van aandacht en ontspanning? Of kom je zelf regelmatig? Bij Studio Anja kan het allebei.</p>
+          </div>
+
+          <div class="cadeau__kaarten">
+            <article class="kaart reveal" style="--vertraging: .1s">
+              <h3>Cadeaubon</h3>
+              <p>Je kiest zelf of je een bedrag cadeau geeft of een bepaalde behandeling. Een cadeaubon koop je in de praktijk, of je vraagt hem aan via e-mail, WhatsApp of Instagram. Ophalen doe je altijd in de praktijk.</p>
+              <p class="kaart__links">
+                <a href="mailto:anja@studio-anja.nl?subject=Cadeaubon">E-mail</a>
+                <a href="https://wa.me/31625100512" rel="noopener">WhatsApp</a>
+                <a href="https://www.instagram.com/studioanja.nl/" rel="noopener">Instagram</a>
+              </p>
+            </article>
+
+            <article class="kaart reveal" style="--vertraging: .2s">
+              <h3>Strippenkaart</h3>
+              <p>Bij je behandeling krijg je gratis een strippenkaart. Elke behandeling telt mee.</p>
+              <p class="kaart__accent">Na 10 behandelingen krijg je 50% korting op je volgende behandeling.</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
   </main>
