@@ -128,46 +128,63 @@
         </div>
 
         <!-- Een geordende lijst (<ol>): de volgorde van de stappen betekent iets -->
-        <ol class="stappen">
-          <li class="stap reveal">
-            <div class="stap__foto">
-              <div class="boog">
-                <img src="../assets/img/voetreflex-stap-1-voeten-openen-800.webp" srcset="../assets/img/voetreflex-stap-1-voeten-openen-800.webp 800w, ../assets/img/voetreflex-stap-1-voeten-openen-1600.webp 1600w" sizes="(max-width: 560px) 78vw, (max-width: 900px) 40vw, 360px" alt="Anja maakt met rustige, vloeiende bewegingen de voeten van een cliënt los" width="800" height="600" loading="lazy">
+        <div class="stappenpad">
+          <!-- De golflijn die zichzelf tekent. pathLength="1" maakt de lengte 1, dat rekent makkelijk. -->
+          <svg class="stappenpad__lijn stappenpad__lijn--breed" viewBox="0 0 1000 44" preserveAspectRatio="none" aria-hidden="true">
+            <path class="spoor" pathLength="1" d="M0,22 C125,-4 375,48 500,22 C625,-4 875,48 1000,22"/>
+            <path class="getekend" pathLength="1" d="M0,22 C125,-4 375,48 500,22 C625,-4 875,48 1000,22"/>
+          </svg>
+          <svg class="stappenpad__lijn stappenpad__lijn--smal" viewBox="0 0 40 1000" preserveAspectRatio="none" aria-hidden="true">
+            <path class="spoor" pathLength="1" d="M20,0 C-4,125 44,375 20,500 C-4,625 44,875 20,1000"/>
+            <path class="getekend" pathLength="1" d="M20,0 C-4,125 44,375 20,500 C-4,625 44,875 20,1000"/>
+          </svg>
+
+          <ol class="stappen">          <li class="stap">
+            <div class="stap__beeld">
+              <span class="stap__adem" aria-hidden="true"></span>
+              <div class="stap__foto">
+                <img src="../assets/img/voetreflex-stap-1-voeten-openen-800.webp" srcset="../assets/img/voetreflex-stap-1-voeten-openen-800.webp 800w, ../assets/img/voetreflex-stap-1-voeten-openen-1600.webp 1600w" sizes="150px" alt="Anja maakt met rustige, vloeiende bewegingen de voeten van een cliënt los" width="800" height="600" loading="lazy">
               </div>
-              <span class="stap__nummer" aria-hidden="true">1</span>
+              <svg class="stap__ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" pathLength="1"/></svg>
+              <span class="stap__nummer" aria-hidden="true">01</span>
             </div>
-            <div>
+            <div class="stap__tekst">
               <h3><span class="visually-hidden">Stap 1: </span>We openen de voeten</h3>
               <p>We beginnen met rustige, vloeiende bewegingen over beide voeten. Dit is bedoeld om je te laten wennen aan de aanraking, je voeten los te maken en je lichaam de kans te geven om over te schakelen naar ontspanning.</p>
             </div>
           </li>
 
-          <li class="stap reveal" style="--vertraging: .12s">
-            <div class="stap__foto">
-              <div class="boog">
-                <img src="../assets/img/voetreflex-stap-2-reflexzones-800.webp" srcset="../assets/img/voetreflex-stap-2-reflexzones-800.webp 600w, ../assets/img/voetreflex-stap-2-reflexzones-1600.webp 1200w" sizes="(max-width: 560px) 78vw, (max-width: 900px) 40vw, 360px" alt="Anja geeft met haar duim gerichte druk op een reflexzone onder de voet" width="600" height="800" loading="lazy">
+          <li class="stap">
+            <div class="stap__beeld">
+              <span class="stap__adem" aria-hidden="true"></span>
+              <div class="stap__foto">
+                <img src="../assets/img/voetreflex-stap-2-reflexzones-800.webp" srcset="../assets/img/voetreflex-stap-2-reflexzones-800.webp 600w, ../assets/img/voetreflex-stap-2-reflexzones-1600.webp 1200w" sizes="150px" alt="Anja geeft met haar duim gerichte druk op een reflexzone onder de voet" width="600" height="800" loading="lazy">
               </div>
-              <span class="stap__nummer" aria-hidden="true">2</span>
+              <svg class="stap__ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" pathLength="1"/></svg>
+              <span class="stap__nummer" aria-hidden="true">02</span>
             </div>
-            <div>
+            <div class="stap__tekst">
               <h3><span class="visually-hidden">Stap 2: </span>We behandelen jouw specifieke klacht</h3>
               <p>Op basis van wat je hebt aangegeven, bijvoorbeeld vermoeidheid, spanning, spijsverteringsklachten, hoofdpijn of slaapproblemen, richten we ons op de zones die daarbij passen. Dit is het hart van de behandeling en kan soms wat drukkender aanvoelen, precies op de plekken waar het nodig is.</p>
             </div>
           </li>
 
-          <li class="stap reveal" style="--vertraging: .24s">
-            <div class="stap__foto">
-              <div class="boog">
-                <img src="../assets/img/voetreflex-stap-3-ontspanningsmassage-800.webp" srcset="../assets/img/voetreflex-stap-3-ontspanningsmassage-800.webp 800w, ../assets/img/voetreflex-stap-3-ontspanningsmassage-1600.webp 1600w" sizes="(max-width: 560px) 78vw, (max-width: 900px) 40vw, 360px" alt="Anja sluit de behandeling af met een ontspanningsmassage van voet en onderbeen" width="800" height="600" loading="lazy">
+          <li class="stap">
+            <div class="stap__beeld">
+              <span class="stap__adem" aria-hidden="true"></span>
+              <div class="stap__foto">
+                <img src="../assets/img/voetreflex-stap-3-ontspanningsmassage-800.webp" srcset="../assets/img/voetreflex-stap-3-ontspanningsmassage-800.webp 800w, ../assets/img/voetreflex-stap-3-ontspanningsmassage-1600.webp 1600w" sizes="150px" alt="Anja sluit de behandeling af met een ontspanningsmassage van voet en onderbeen" width="800" height="600" loading="lazy">
               </div>
-              <span class="stap__nummer" aria-hidden="true">3</span>
+              <svg class="stap__ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" pathLength="1"/></svg>
+              <span class="stap__nummer" aria-hidden="true">03</span>
             </div>
-            <div>
+            <div class="stap__tekst">
               <h3><span class="visually-hidden">Stap 3: </span>We sluiten af met een ontspanningsmassage</h3>
               <p>Tot slot krijgen je voet en onderbeen een rustgevende ontspanningsmassage. Dit haalt eventuele resterende spanning weg en zorgt dat je de behandeling in een staat van volledige rust afsluit.</p>
             </div>
           </li>
-        </ol>
+          </ol>
+        </div>
 
         <p class="stappenplan__slot reveal">Heb je vragen of wil je tijdens de behandeling iets aangeven? Laat het gerust weten. De behandeling wordt altijd op jouw klacht en wensen afgestemd.</p>
       </div>
@@ -184,46 +201,63 @@
           <p>Een holistische total body massage duurt 60 minuten. Tijdens de behandeling nemen we rustig de tijd om je hele lichaam aandacht te geven, in een vaste, doordachte volgorde die je helpt om helemaal te ontspannen.</p>
         </div>
 
-        <ol class="stappen">
-          <li class="stap reveal">
-            <div class="stap__foto">
-              <div class="boog">
-                <img src="../assets/img/massage-stap-1-rug-800.webp" srcset="../assets/img/massage-stap-1-rug-800.webp 600w, ../assets/img/massage-stap-1-rug-1600.webp 1200w" sizes="(max-width: 560px) 78vw, (max-width: 900px) 40vw, 360px" alt="Anja masseert met beide handen de rug van een cliënt die op haar buik ligt" width="600" height="800" loading="lazy">
+        <div class="stappenpad">
+          <!-- De golflijn die zichzelf tekent. pathLength="1" maakt de lengte 1, dat rekent makkelijk. -->
+          <svg class="stappenpad__lijn stappenpad__lijn--breed" viewBox="0 0 1000 44" preserveAspectRatio="none" aria-hidden="true">
+            <path class="spoor" pathLength="1" d="M0,22 C125,-4 375,48 500,22 C625,-4 875,48 1000,22"/>
+            <path class="getekend" pathLength="1" d="M0,22 C125,-4 375,48 500,22 C625,-4 875,48 1000,22"/>
+          </svg>
+          <svg class="stappenpad__lijn stappenpad__lijn--smal" viewBox="0 0 40 1000" preserveAspectRatio="none" aria-hidden="true">
+            <path class="spoor" pathLength="1" d="M20,0 C-4,125 44,375 20,500 C-4,625 44,875 20,1000"/>
+            <path class="getekend" pathLength="1" d="M20,0 C-4,125 44,375 20,500 C-4,625 44,875 20,1000"/>
+          </svg>
+
+          <ol class="stappen">          <li class="stap">
+            <div class="stap__beeld">
+              <span class="stap__adem" aria-hidden="true"></span>
+              <div class="stap__foto">
+                <img src="../assets/img/massage-stap-1-rug-800.webp" srcset="../assets/img/massage-stap-1-rug-800.webp 600w, ../assets/img/massage-stap-1-rug-1600.webp 1200w" sizes="150px" alt="Anja masseert met beide handen de rug van een cliënt die op haar buik ligt" width="600" height="800" loading="lazy">
               </div>
-              <span class="stap__nummer" aria-hidden="true">1</span>
+              <svg class="stap__ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" pathLength="1"/></svg>
+              <span class="stap__nummer" aria-hidden="true">01</span>
             </div>
-            <div>
+            <div class="stap__tekst">
               <h3><span class="visually-hidden">Stap 1: </span>Je ligt eerst op je buik</h3>
               <p>We beginnen met een rustig moment van aanraking, zodat je kunt wennen en je ademhaling vanzelf rustiger wordt. Daarna volgen lange, vloeiende strijkingen over je hele rug, gevolgd door dieper kneedwerk in je schouders en onderrug: precies waar de meeste spanning vaak zit. Vervolgens gaan we naar je benen, van je enkels tot je bovenbenen, en we sluiten de achterzijde af met je voeten.</p>
             </div>
           </li>
 
-          <li class="stap reveal" style="--vertraging: .12s">
-            <div class="stap__foto">
-              <div class="boog">
-                <img src="../assets/img/massage-stap-2-schouders-800.webp" srcset="../assets/img/massage-stap-2-schouders-800.webp 800w, ../assets/img/massage-stap-2-schouders-1600.webp 1600w" sizes="(max-width: 560px) 78vw, (max-width: 900px) 40vw, 360px" alt="Anja masseert de schouder en bovenarm van een cliënt" width="800" height="600" loading="lazy">
+          <li class="stap">
+            <div class="stap__beeld">
+              <span class="stap__adem" aria-hidden="true"></span>
+              <div class="stap__foto">
+                <img src="../assets/img/massage-stap-2-schouders-800.webp" srcset="../assets/img/massage-stap-2-schouders-800.webp 800w, ../assets/img/massage-stap-2-schouders-1600.webp 1600w" sizes="150px" alt="Anja masseert de schouder en bovenarm van een cliënt" width="800" height="600" loading="lazy">
               </div>
-              <span class="stap__nummer" aria-hidden="true">2</span>
+              <svg class="stap__ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" pathLength="1"/></svg>
+              <span class="stap__nummer" aria-hidden="true">02</span>
             </div>
-            <div>
+            <div class="stap__tekst">
               <h3><span class="visually-hidden">Stap 2: </span>Je draait je om</h3>
               <p>Even een kort rustmoment terwijl je je omdraait, zodat de overgang zacht verloopt. We werken je benen aan de voorkant, daarna je armen en handen, heerlijk voor mentale ontspanning. Je buik krijgt zachte, cirkelende bewegingen die de spijsvertering ondersteunen. Ten slotte je decolleté en schouders, waar we vaak vastgehouden spanning rond je borstkas loslaten.</p>
             </div>
           </li>
 
-          <li class="stap reveal" style="--vertraging: .24s">
-            <div class="stap__foto">
-              <div class="boog">
-                <img src="../assets/img/massage-stap-3-hoofd-en-nek-800.webp" srcset="../assets/img/massage-stap-3-hoofd-en-nek-800.webp 800w, ../assets/img/massage-stap-3-hoofd-en-nek-1600.webp 1600w" sizes="(max-width: 560px) 78vw, (max-width: 900px) 40vw, 360px" alt="Anja geeft een cliënt een rustige hoofdhuidmassage" width="800" height="600" loading="lazy">
+          <li class="stap">
+            <div class="stap__beeld">
+              <span class="stap__adem" aria-hidden="true"></span>
+              <div class="stap__foto">
+                <img src="../assets/img/massage-stap-3-hoofd-en-nek-800.webp" srcset="../assets/img/massage-stap-3-hoofd-en-nek-800.webp 800w, ../assets/img/massage-stap-3-hoofd-en-nek-1600.webp 1600w" sizes="150px" alt="Anja geeft een cliënt een rustige hoofdhuidmassage" width="800" height="600" loading="lazy">
               </div>
-              <span class="stap__nummer" aria-hidden="true">3</span>
+              <svg class="stap__ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" pathLength="1"/></svg>
+              <span class="stap__nummer" aria-hidden="true">03</span>
             </div>
-            <div>
+            <div class="stap__tekst">
               <h3><span class="visually-hidden">Stap 3: </span>Nek, hoofd en gezicht</h3>
               <p>Je nek wordt zacht losgemaakt, gevolgd door een hoofdhuidmassage. Voor veel mensen is dat het meest ontspannende onderdeel van de hele behandeling. We eindigen bij je gezicht: voorhoofd, slapen en kaak, voor een kalme afronding. Tot slot nemen we een rustig moment om even stil te zijn, zodat je de tijd hebt om weer helemaal te landen voordat je opstaat.</p>
             </div>
           </li>
-        </ol>
+          </ol>
+        </div>
 
         <p class="stappenplan__slot reveal">Heb je ergens specifieke klachten of een plek waar je extra aandacht wilt? Laat het gerust weten voor of tijdens de behandeling. De massage wordt altijd op jou afgestemd.</p>
       </div>

@@ -71,6 +71,22 @@ De boekingswidget van Salonized staat onderaan elke pagina, vlak voor `</body>`.
 Die code niet aanpassen. Let op: lokaal (op `localhost`) laadt Salonized een testversie, dus de widget
 kun je pas echt testen op het GitHub Pages adres.
 
+## Het stappenpad (behandelpagina)
+
+De stappenplannen voor voetreflex en massage staan in een `<div class="stappenpad">`.
+Daarin staan twee golflijnen (SVG): een liggende voor brede schermen en een staande voor tablet en telefoon.
+
+Hoe het werkt (blok 4 in `assets/js/main.js`):
+
+1. `meetPad` meet waar de middens van de ronde foto's staan en zet die als `--x1 --y1 --x2 --y2` op het pad. De CSS legt de lijn daar precies tussen.
+2. `tekenPad` rekent bij het scrollen uit hoe ver de lijn getekend moet zijn (`--voortgang`, van 0 tot 1).
+   De lijn heeft `pathLength="1"`, dus `stroke-dashoffset: calc(1 - var(--voortgang))` tekent hem precies zo ver.
+3. Komt de lijn bij een stap, dan krijgt die de class `is-actief`: de ring tekent zich om de foto, het nummer verschijnt
+   en de zachte vorm achter de foto begint langzaam te "ademen" (`@keyframes ademen` in de stylesheet).
+
+Wie op zijn apparaat "minder beweging" heeft ingesteld, ziet alles meteen compleet en stil.
+Zonder JavaScript zijn de lijnen verborgen en staan alle stappen gewoon open.
+
 ## Foto's toevoegen
 
 1. Zet de foto om naar WebP, in twee formaten: 800 en 1600 pixels aan de langste kant.

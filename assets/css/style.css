@@ -44,7 +44,7 @@
   /* Maten: clamp(min, voorkeur, max) laat iets meegroeien met het scherm */
   --container: 1200px;
   --gutter: clamp(1.25rem, 4vw, 3rem);           /* ruimte aan de zijkant */
-  --sectie: clamp(4.5rem, 10vw, 8.5rem);         /* ruimte boven/onder secties */
+  --sectie: clamp(3rem, 6vw, 5.5rem);            /* ruimte boven/onder secties */
   --header-h: 6rem;                              /* hoogte van de header */
   --radius: 1.25rem;
 
@@ -200,7 +200,7 @@ ul { padding-left: 1.2em; }
 .golf {
   display: block;
   width: 100%;
-  height: clamp(44px, 7vw, 120px);
+  height: clamp(36px, 5vw, 90px);
   background: var(--van, transparent);
   color: var(--naar, var(--mauve));
   fill: currentColor;
@@ -506,7 +506,7 @@ main { padding-top: var(--header-h); }
 .hero__tekst {
   position: relative;
   z-index: 2;
-  padding-block: calc(var(--header-h) + 3rem) 7rem;
+  padding-block: calc(var(--header-h) + 3rem) 5.5rem;
 }
 .hero h1 {
   max-width: 14ch;
@@ -536,7 +536,7 @@ main { padding-top: var(--header-h); }
    Beide kleuren zijn een paar tinten donkerder dan de huisstijl,
    zodat de witte tekst beter leesbaar is. */
 .behandeling {
-  padding-block: clamp(3rem, 7vw, 6rem);
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
   color: #fff;
 }
 .behandeling--mauve { background: var(--mauve-diep); }
@@ -746,7 +746,7 @@ main { padding-top: var(--header-h); }
   display: grid;
   grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
   gap: clamp(2.5rem, 7vw, 7rem);
-  align-items: center;
+  align-items: start;   /* foto en tekst beginnen op dezelfde hoogte */
 }
 .tarieven__foto { aspect-ratio: 4 / 5; max-width: 400px; }
 .tarieven__intro { max-width: 34rem; }
@@ -795,11 +795,11 @@ main { padding-top: var(--header-h); }
 
 /* Een behandeling met een stappenplan */
 .stappenplan {
-  padding-block: clamp(3.5rem, 8vw, 7rem);
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
 }
 .stappenplan__kop {
   max-width: 44rem;
-  margin: 0 auto clamp(3rem, 6vw, 5rem);
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem);
   text-align: center;
 }
 .stappenplan__kop .bovenkop { color: inherit; opacity: .85; }
@@ -814,91 +814,200 @@ main { padding-top: var(--header-h); }
 .stappenplan--salie h3 { color: var(--salie-donker); }
 .stappenplan--salie .bovenkop { color: var(--salie-donker); }
 
+/* ---- Het stappenpad ----
+   Een golflijn verbindt de drie stappen en tekent zichzelf terwijl je scrolt.
+   main.js zet daarvoor twee dingen op het pad:
+   --voortgang  een getal van 0 tot 1: hoe ver de lijn getekend is
+   --x1 --y1 --x2 --y2  de middens van de eerste en laatste cirkel
+   Zodra de lijn een stap bereikt, krijgt die stap de class "is-actief". */
+.stappenpad {
+  --beeld: 150px;                         /* doorsnede van de ronde foto */
+  --kolom-gat: clamp(2rem, 4vw, 3.5rem);
+  --accent: #fff;                         /* lijn en ring (mauve vlak) */
+  --spoor: rgb(255 255 255 / .3);         /* de nog niet getekende lijn */
+  --adem: rgb(255 255 255 / .14);         /* de ademende vorm achter de foto */
+  position: relative;
+}
+.stappenplan--salie .stappenpad {
+  --accent: var(--salie-diep);
+  --spoor: rgb(138 156 118 / .4);
+  --adem: rgb(177 192 158 / .38);
+}
+
+/* De lijn ligt achter de stappen. Zonder JavaScript is hij er niet. */
+.stappenpad__lijn {
+  position: absolute;
+  display: none;
+  overflow: visible;
+  pointer-events: none;
+  fill: none;
+}
+.js .stappenpad__lijn--breed {
+  display: block;
+  left: var(--x1);
+  top: calc(var(--y1) - 22px);
+  width: calc(var(--x2) - var(--x1));
+  height: 44px;
+}
+.stappenpad__lijn .spoor {
+  stroke: var(--spoor);
+  stroke-width: 1.5;
+  stroke-dasharray: .004 .01;             /* stippellijn (in "padlengte", zie pathLength="1") */
+}
+.stappenpad__lijn .getekend {
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: calc(1 - var(--voortgang, 0));   /* 0 = niets, 1 = helemaal */
+}
+
 .stappen {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(2rem, 4vw, 3.5rem);
+  gap: var(--kolom-gat);
+  position: relative;                     /* ligt boven de lijn */
+}
+.stap { text-align: center; }
+
+/* Ronde foto met ring, nummer en ademende vorm */
+.stap__beeld {
+  position: relative;
+  width: var(--beeld);
+  height: var(--beeld);
+  margin: 0 auto 1.75rem;
+}
+.stap__adem {
+  position: absolute;
+  inset: -16%;
+  background: var(--adem);
+  border-radius: 58% 42% 55% 45% / 48% 60% 40% 52%;
+  animation: ademen 8s ease-in-out infinite alternate;
+  transition: scale .6s var(--ease), opacity 1s var(--ease);
+}
+.stap:nth-child(2) .stap__adem { animation-delay: -2.7s; }
+.stap:nth-child(3) .stap__adem { animation-delay: -5.4s; }
+
+/* Rustig in- en uitademen: groter worden en van vorm veranderen */
+@keyframes ademen {
+  from { transform: scale(.94) rotate(0deg); border-radius: 58% 42% 55% 45% / 48% 60% 40% 52%; }
+  to   { transform: scale(1.06) rotate(12deg); border-radius: 44% 56% 42% 58% / 57% 43% 57% 43%; }
 }
 
 .stap__foto {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  margin-bottom: 2.75rem;     /* ruimte voor het nummer dat half onder de foto steekt */
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--adem);
+  transition: transform 1s var(--ease), opacity 1s var(--ease), filter 1s var(--ease);
 }
-.stap__foto .boog {
-  height: 100%;
-  box-shadow: 0 30px 50px -35px rgb(40 25 35 / .55);
-}
-/* De foto vergroot zacht bij hover. overflow: hidden op .boog
-   zorgt dat de foto binnen de boogvorm blijft. */
 .stap__foto img {
-  transition: transform 1.4s var(--ease);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s var(--ease);
 }
 
-/* Alleen op apparaten met een muis: telefoons en tablets hebben geen hover */
-@media (hover: hover) {
-  .stap:hover .stap__foto img { transform: scale(1.07); }
+/* De ring om de foto: een SVG-cirkel die zich tekent */
+.stap__ring {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);              /* begin bovenaan */
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.3s var(--ease);
 }
 
-/* Rond nummer dat half over de onderrand van de foto valt */
+/* Nummer: strak, in Montserrat */
 .stap__nummer {
   position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translate(-50%, 50%);
+  top: 2%;
+  right: -2%;
   display: grid;
   place-items: center;
-  width: 4.25rem;
-  height: 4.25rem;
+  width: 2.6rem;
+  height: 2.6rem;
   border-radius: 50%;
-  font-family: var(--font-kop);
-  font-size: 2rem;
-  font-style: italic;
-  line-height: 1;
-  transition: transform .8s var(--ease);
+  background: var(--accent);
+  color: var(--mauve-diep);
+  font-family: var(--font-tekst);
+  font-size: .78rem;
+  font-weight: 400;
+  letter-spacing: .08em;
+  font-variant-numeric: tabular-nums;
+  transition: transform .8s var(--ease), opacity .8s var(--ease);
 }
-@media (hover: hover) {
-  .stap:hover .stap__nummer { transform: translate(-50%, 42%); }
-}
-.stappenplan--mauve .stap__nummer { background: #fff; color: var(--mauve-diep); }
-.stappenplan--salie .stap__nummer { background: var(--salie-diep); color: #fff; }
+.stappenplan--salie .stap__nummer { color: #fff; }
 
-.stap h3 { text-align: center; margin-bottom: .75rem; }
+.stap h3 { margin-bottom: .6rem; }
 .stap p { font-size: .975rem; }
 .stappenplan--mauve .stap p { font-weight: 400; }
+.stap__tekst { transition: opacity 1s var(--ease), transform 1s var(--ease); }
 
-.stappenplan__slot {
-  max-width: 40rem;
-  margin: clamp(3rem, 6vw, 4.5rem) auto 0;
-  text-align: center;
-  font-family: var(--font-kop);
-  font-style: italic;
-  font-size: clamp(1.1rem, 1rem + .4vw, 1.3rem);
-  line-height: 1.6;
+/* Begintoestand (alleen met JavaScript): de stap wacht tot de lijn er is */
+.js .stap:not(.is-actief) .stap__foto { opacity: .45; transform: scale(.82); filter: grayscale(.7); }
+.js .stap:not(.is-actief) .stap__ring { stroke-dashoffset: 1; }
+.js .stap:not(.is-actief) .stap__nummer { opacity: 0; transform: scale(.6); }
+.js .stap:not(.is-actief) .stap__adem { opacity: 0; animation-play-state: paused; }
+.js .stap:not(.is-actief) .stap__tekst { opacity: .5; transform: translateY(10px); }
+
+/* Hover, alleen met een muis */
+@media (hover: hover) {
+  .stap:hover .stap__foto img { transform: scale(1.08); }
+  .stap:hover .stap__adem { scale: 1.1; }
 }
 
-/* Tablet: elke stap als rij, foto links en tekst rechts */
+/* Afsluitende zin onder de stappen */
+.stappenplan__slot {
+  max-width: 34rem;
+  margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+  text-align: center;
+  font-size: .95rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+.stappenplan__slot::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  margin: 0 auto 1.25rem;
+  background: currentColor;
+  opacity: .5;
+}
+
+/* Tablet en telefoon: stappen onder elkaar, cirkel links, lijn verticaal */
 @media (max-width: 900px) {
-  .stappen { grid-template-columns: 1fr; gap: 3rem; }
+  .stappenpad { --beeld: 112px; }
+  .js .stappenpad__lijn--breed { display: none; }
+  .js .stappenpad__lijn--smal {
+    display: block;
+    left: calc(var(--x1) - 20px);
+    top: var(--y1);
+    width: 40px;
+    height: calc(var(--y2) - var(--y1));
+  }
+  .stappen { grid-template-columns: 1fr; gap: 2.5rem; }
   .stap {
     display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-    gap: 2rem;
-    align-items: center;
+    grid-template-columns: var(--beeld) minmax(0, 1fr);
+    gap: 1.75rem;
+    align-items: start;
+    text-align: left;
   }
-  .stap__foto { margin-bottom: 0; }
-  .stap__nummer { left: auto; right: 0; bottom: auto; top: 1.5rem; transform: translateX(35%); }
-  .stap h3 { text-align: left; }
+  .stap__beeld { margin: 0; }
 }
-/* Telefoon: alles onder elkaar */
 @media (max-width: 560px) {
-  .stap { grid-template-columns: 1fr; gap: 0; }
-  .stap__foto { width: 78%; margin: 0 auto 2.75rem; }
-  .stap__nummer { left: 50%; right: auto; top: auto; bottom: 0; transform: translate(-50%, 50%); }
-  .stap h3 { text-align: center; }
+  .stappenpad { --beeld: 92px; }
+  .stap { gap: 1.25rem; }
+  .stap__nummer { width: 2.2rem; height: 2.2rem; font-size: .7rem; }
 }
 
 /* Combibehandeling */
@@ -940,8 +1049,15 @@ main { padding-top: var(--header-h); }
     transition-delay: 0s !important;
   }
   .js .reveal { opacity: 1; transform: none; }
-  /* Geen inzoomende foto's of verschuivende nummers bij hover */
+  /* Geen inzoomende foto's bij hover */
   .stap:hover .stap__foto img,
   .behandeling__foto:hover img { transform: none; }
-  .stap:hover .stap__nummer { transform: translate(-50%, 50%); }
+  /* Stappenpad: lijn meteen helemaal, alle stappen actief, geen ademen */
+  .stappenpad { --voortgang: 1 !important; }
+  .js .stap:not(.is-actief) .stap__foto { opacity: 1; transform: none; filter: none; }
+  .js .stap:not(.is-actief) .stap__ring { stroke-dashoffset: 0; }
+  .js .stap:not(.is-actief) .stap__nummer { opacity: 1; transform: none; }
+  .js .stap .stap__adem { opacity: 1; animation: none; }
+  .stap:hover .stap__adem { scale: 1; }
+  .js .stap:not(.is-actief) .stap__tekst { opacity: 1; transform: none; }
 }
