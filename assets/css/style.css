@@ -7,7 +7,8 @@
    4. Header en menu
    5. Footer en contact
    6. Homepage
-   7. Animaties en prefers-reduced-motion
+   7. Behandelpagina (tarieven en stappen)
+   8. Animaties en prefers-reduced-motion
    ========================================================= */
 
 
@@ -207,7 +208,8 @@ ul { padding-left: 1.2em; }
 }
 .golf--gespiegeld { transform: scaleX(-1); }
 /* Het vlak na een golf ligt er net overheen, zodat de onderrand van de golf wegvalt */
-.golf + * { position: relative; }
+.golf + *,
+footer { position: relative; }
 
 
 /* ---------- 4. Header en menu ---------- */
@@ -737,7 +739,183 @@ main { padding-top: var(--header-h); }
 }
 
 
-/* ---------- 7. Animaties ---------- */
+/* ---------- 7. Behandelpagina ---------- */
+
+/* Tarieven bovenaan */
+.tarieven__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: clamp(2.5rem, 7vw, 7rem);
+  align-items: center;
+}
+.tarieven__foto { aspect-ratio: 4 / 5; max-width: 400px; }
+.tarieven__intro { max-width: 34rem; }
+
+.prijslijst {
+  list-style: none;
+  margin: 2.5rem 0 1.5rem;
+  padding: 0;
+  border-top: 1px solid rgb(79 60 70 / .12);
+}
+.prijslijst li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: .25rem 2rem;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid rgb(79 60 70 / .12);
+}
+.prijslijst__naam {
+  font-family: var(--font-kop);
+  font-size: clamp(1.15rem, 1.05rem + .4vw, 1.4rem);
+  color: var(--mauve-donker);
+}
+.prijslijst__tijd {
+  grid-column: 1;
+  font-size: .85rem;
+  color: var(--tekst-zacht);
+}
+.prijslijst__prijs {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-family: var(--font-kop);
+  font-size: clamp(1.3rem, 1.15rem + .5vw, 1.6rem);
+  color: var(--mauve-donker);
+}
+.tarieven__noot {
+  font-size: .95rem;
+  color: var(--tekst);
+}
+
+@media (max-width: 800px) {
+  .tarieven__grid { grid-template-columns: 1fr; }
+  .tarieven__foto { max-width: 300px; width: 100%; justify-self: center; }
+}
+
+/* Een behandeling met een stappenplan */
+.stappenplan {
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+}
+.stappenplan__kop {
+  max-width: 44rem;
+  margin: 0 auto clamp(3rem, 6vw, 5rem);
+  text-align: center;
+}
+.stappenplan__kop .bovenkop { color: inherit; opacity: .85; }
+
+/* Mauve: donker vlak met lichte tekst */
+.stappenplan--mauve { background: var(--mauve-diep); color: #fff; }
+.stappenplan--mauve h2,
+.stappenplan--mauve h3 { color: #fff; }
+
+/* Massage: lichte achtergrond met saliegroene accenten (zoals in Canva) */
+.stappenplan--salie h2,
+.stappenplan--salie h3 { color: var(--salie-donker); }
+.stappenplan--salie .bovenkop { color: var(--salie-donker); }
+
+.stappen {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.stap__foto {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  margin-bottom: 2.75rem;     /* ruimte voor het nummer dat half onder de foto steekt */
+}
+.stap__foto .boog {
+  height: 100%;
+  box-shadow: 0 30px 50px -35px rgb(40 25 35 / .55);
+}
+/* De foto vergroot zacht bij hover. overflow: hidden op .boog
+   zorgt dat de foto binnen de boogvorm blijft. */
+.stap__foto img {
+  transition: transform 1.4s var(--ease);
+}
+
+/* Alleen op apparaten met een muis: telefoons en tablets hebben geen hover */
+@media (hover: hover) {
+  .stap:hover .stap__foto img { transform: scale(1.07); }
+}
+
+/* Rond nummer dat half over de onderrand van de foto valt */
+.stap__nummer {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  display: grid;
+  place-items: center;
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 50%;
+  font-family: var(--font-kop);
+  font-size: 2rem;
+  font-style: italic;
+  line-height: 1;
+  transition: transform .8s var(--ease);
+}
+@media (hover: hover) {
+  .stap:hover .stap__nummer { transform: translate(-50%, 42%); }
+}
+.stappenplan--mauve .stap__nummer { background: #fff; color: var(--mauve-diep); }
+.stappenplan--salie .stap__nummer { background: var(--salie-diep); color: #fff; }
+
+.stap h3 { text-align: center; margin-bottom: .75rem; }
+.stap p { font-size: .975rem; }
+.stappenplan--mauve .stap p { font-weight: 400; }
+
+.stappenplan__slot {
+  max-width: 40rem;
+  margin: clamp(3rem, 6vw, 4.5rem) auto 0;
+  text-align: center;
+  font-family: var(--font-kop);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1rem + .4vw, 1.3rem);
+  line-height: 1.6;
+}
+
+/* Tablet: elke stap als rij, foto links en tekst rechts */
+@media (max-width: 900px) {
+  .stappen { grid-template-columns: 1fr; gap: 3rem; }
+  .stap {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: 2rem;
+    align-items: center;
+  }
+  .stap__foto { margin-bottom: 0; }
+  .stap__nummer { left: auto; right: 0; bottom: auto; top: 1.5rem; transform: translateX(35%); }
+  .stap h3 { text-align: left; }
+}
+/* Telefoon: alles onder elkaar */
+@media (max-width: 560px) {
+  .stap { grid-template-columns: 1fr; gap: 0; }
+  .stap__foto { width: 78%; margin: 0 auto 2.75rem; }
+  .stap__nummer { left: 50%; right: auto; top: auto; bottom: 0; transform: translate(-50%, 50%); }
+  .stap h3 { text-align: center; }
+}
+
+/* Combibehandeling */
+.combi {
+  background: var(--mauve-zacht);
+  text-align: center;
+}
+.combi .container { max-width: 46rem; }
+.combi .label-prijs { background: var(--bg); color: var(--mauve-donker); }
+.combi__noot {
+  margin-top: 2rem;
+  font-size: .9rem;
+  color: var(--tekst-zacht);
+}
+
+
+/* ---------- 8. Animaties ---------- */
 /* Elementen met class "reveal" faden rustig in zodra ze in beeld komen.
    Alleen als JavaScript werkt (class "js" op <html>), anders blijft alles
    gewoon zichtbaar. */
@@ -762,4 +940,8 @@ main { padding-top: var(--header-h); }
     transition-delay: 0s !important;
   }
   .js .reveal { opacity: 1; transform: none; }
+  /* Geen inzoomende foto's of verschuivende nummers bij hover */
+  .stap:hover .stap__foto img,
+  .behandeling__foto:hover img { transform: none; }
+  .stap:hover .stap__nummer { transform: translate(-50%, 50%); }
 }

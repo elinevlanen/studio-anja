@@ -32,6 +32,27 @@
 
   <!-- Laat de CSS meteen weten dat JavaScript werkt (voor het infaden) -->
   <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Gegevens voor Google: welke behandelingen en wat ze kosten.
+       "@id" verwijst naar de praktijkgegevens op de homepage. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "@id": "https://studio-anja.nl/#praktijk",
+    "name": "Studio Anja",
+    "url": "https://studio-anja.nl/",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Behandelingen",
+      "itemListElement": [
+        { "@type": "Offer", "price": "50", "priceCurrency": "EUR", "itemOffered": { "@type": "Service", "name": "Voetreflex behandeling", "description": "Voetreflextherapie van 60 minuten in Uden." } },
+        { "@type": "Offer", "price": "60", "priceCurrency": "EUR", "itemOffered": { "@type": "Service", "name": "Holistische total body massage", "description": "Holistische massage van het hele lichaam, 60 minuten, in Uden." } },
+        { "@type": "Offer", "price": "90", "priceCurrency": "EUR", "itemOffered": { "@type": "Service", "name": "Combibehandeling", "description": "Voetreflex en holistische massage in één sessie, 75 tot 90 minuten." } }
+      ]
+    }
+  }
+  </script>
 </head>
 <body class="pagina-behandelingen">
 
@@ -60,13 +81,168 @@
 
   <!-- ============ INHOUD ============ -->
   <main id="inhoud">
-    <!-- Deze pagina wordt in een volgende fase gebouwd. Dit blok is tijdelijk. -->
-    <section class="sectie">
-      <div class="container reveal">
-        <h1>Behandelingen</h1>
-        <p>Deze pagina volgt in een volgende fase.</p>
+    <!-- ===== Tarieven ===== -->
+    <section class="sectie tarieven" aria-labelledby="titel-tarieven">
+      <div class="container tarieven__grid">
+        <div class="tarieven__foto boog reveal">
+          <img src="../assets/img/voetreflex-tarieven-800.webp" srcset="../assets/img/voetreflex-tarieven-800.webp 600w, ../assets/img/voetreflex-tarieven-1600.webp 1200w" sizes="(max-width: 800px) 300px, 400px" alt="Anja houdt met beide handen de voet van een cliënt vast tijdens een voetreflexbehandeling" width="600" height="800" fetchpriority="high">
+        </div>
+
+        <div class="tarieven__intro reveal" style="--vertraging: .1s">
+          <span class="bovenkop">Behandelingen in Uden</span>
+          <h1 id="titel-tarieven">Behandelingen en tarieven</h1>
+          <p>Bij Studio Anja kies je voor voetreflextherapie, een holistische total body massage of een combinatie van beide. Iedere behandeling wordt afgestemd op wat jij op dat moment nodig hebt.</p>
+
+          <ul class="prijslijst">
+            <li>
+              <span class="prijslijst__naam">Voetreflex behandeling</span>
+              <span class="prijslijst__tijd">60 minuten</span>
+              <span class="prijslijst__prijs">€50</span>
+            </li>
+            <li>
+              <span class="prijslijst__naam">Holistische total body massage</span>
+              <span class="prijslijst__tijd">60 minuten</span>
+              <span class="prijslijst__prijs">€60</span>
+            </li>
+            <li>
+              <span class="prijslijst__naam">Combibehandeling</span>
+              <span class="prijslijst__tijd">Voetreflex en massage, 75 tot 90 minuten</span>
+              <span class="prijslijst__prijs">€90</span>
+            </li>
+          </ul>
+
+          <p class="tarieven__noot">Bij een eerste afspraak neem ik extra tijd voor de intake. Die gaat dus niet van je behandeltijd af.</p>
+        </div>
       </div>
     </section>
+
+    <svg class="golf" viewBox="0 0 1440 120" preserveAspectRatio="none" style="--van: var(--bg); --naar: var(--mauve-diep)" aria-hidden="true"><path d="M0,70 C180,115 380,118 560,92 C760,62 900,18 1100,26 C1260,32 1360,62 1440,78 L1440,120 L0,120 Z"/></svg>
+
+    <!-- ===== Voetreflex: stappenplan ===== -->
+    <section class="stappenplan stappenplan--mauve" id="voetreflex" aria-labelledby="titel-voetreflex">
+      <div class="container">
+        <div class="stappenplan__kop reveal">
+          <span class="bovenkop">Wat je kunt verwachten tijdens de behandeling</span>
+          <h2 id="titel-voetreflex">Voetreflex behandeling</h2>
+          <p>Een voetreflexbehandeling duurt 60 minuten. Je ligt of zit comfortabel, meestal in een verwarmde ruimte met zachte muziek, zodat je lichaam de kans krijgt om helemaal tot rust te komen. De behandeling bestaat uit drie delen.</p>
+        </div>
+
+        <!-- Een geordende lijst (<ol>): de volgorde van de stappen betekent iets -->
+        <ol class="stappen">
+          <li class="stap reveal">
+            <div class="stap__foto">
+              <div class="boog">
+                <img src="../assets/img/voetreflex-stap-1-voeten-openen-800.webp" srcset="../assets/img/voetreflex-stap-1-voeten-openen-800.webp 800w, ../assets/img/voetreflex-stap-1-voeten-openen-1600.webp 1600w" sizes="(max-width: 560px) 78vw, (max-width: 900px) 40vw, 360px" alt="Anja maakt met rustige, vloeiende bewegingen de voeten van een cliënt los" width="800" height="600" loading="lazy">
+              </div>
+              <span class="stap__nummer" aria-hidden="true">1</span>
+            </div>
+            <div>
+              <h3><span class="visually-hidden">Stap 1: </span>We openen de voeten</h3>
+              <p>We beginnen met rustige, vloeiende bewegingen over beide voeten. Dit is bedoeld om je te laten wennen aan de aanraking, je voeten los te maken en je lichaam de kans te geven om over te schakelen naar ontspanning.</p>
+            </div>
+          </li>
+
+          <li class="stap reveal" style="--vertraging: .12s">
+            <div class="stap__foto">
+              <div class="boog">
+                <img src="../assets/img/voetreflex-stap-2-reflexzones-800.webp" srcset="../assets/img/voetreflex-stap-2-reflexzones-800.webp 600w, ../assets/img/voetreflex-stap-2-reflexzones-1600.webp 1200w" sizes="(max-width: 560px) 78vw, (max-width: 900px) 40vw, 360px" alt="Anja geeft met haar duim gerichte druk op een reflexzone onder de voet" width="600" height="800" loading="lazy">
+              </div>
+              <span class="stap__nummer" aria-hidden="true">2</span>
+            </div>
+            <div>
+              <h3><span class="visually-hidden">Stap 2: </span>We behandelen jouw specifieke klacht</h3>
+              <p>Op basis van wat je hebt aangegeven, bijvoorbeeld vermoeidheid, spanning, spijsverteringsklachten, hoofdpijn of slaapproblemen, richten we ons op de zones die daarbij passen. Dit is het hart van de behandeling en kan soms wat drukkender aanvoelen, precies op de plekken waar het nodig is.</p>
+            </div>
+          </li>
+
+          <li class="stap reveal" style="--vertraging: .24s">
+            <div class="stap__foto">
+              <div class="boog">
+                <img src="../assets/img/voetreflex-stap-3-ontspanningsmassage-800.webp" srcset="../assets/img/voetreflex-stap-3-ontspanningsmassage-800.webp 800w, ../assets/img/voetreflex-stap-3-ontspanningsmassage-1600.webp 1600w" sizes="(max-width: 560px) 78vw, (max-width: 900px) 40vw, 360px" alt="Anja sluit de behandeling af met een ontspanningsmassage van voet en onderbeen" width="800" height="600" loading="lazy">
+              </div>
+              <span class="stap__nummer" aria-hidden="true">3</span>
+            </div>
+            <div>
+              <h3><span class="visually-hidden">Stap 3: </span>We sluiten af met een ontspanningsmassage</h3>
+              <p>Tot slot krijgen je voet en onderbeen een rustgevende ontspanningsmassage. Dit haalt eventuele resterende spanning weg en zorgt dat je de behandeling in een staat van volledige rust afsluit.</p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="stappenplan__slot reveal">Heb je vragen of wil je tijdens de behandeling iets aangeven? Laat het gerust weten. De behandeling wordt altijd op jouw klacht en wensen afgestemd.</p>
+      </div>
+    </section>
+
+    <svg class="golf golf--gespiegeld" viewBox="0 0 1440 120" preserveAspectRatio="none" style="--van: var(--mauve-diep); --naar: var(--bg)" aria-hidden="true"><path d="M0,80 C220,20 470,14 720,58 C960,100 1200,112 1440,48 L1440,120 L0,120 Z"/></svg>
+
+    <!-- ===== Holistische total body massage: stappenplan ===== -->
+    <section class="stappenplan stappenplan--salie" id="massage" aria-labelledby="titel-massage" style="background: var(--bg)">
+      <div class="container">
+        <div class="stappenplan__kop reveal">
+          <span class="bovenkop">Wat je kunt verwachten tijdens de behandeling</span>
+          <h2 id="titel-massage">Holistische total body massage</h2>
+          <p>Een holistische total body massage duurt 60 minuten. Tijdens de behandeling nemen we rustig de tijd om je hele lichaam aandacht te geven, in een vaste, doordachte volgorde die je helpt om helemaal te ontspannen.</p>
+        </div>
+
+        <ol class="stappen">
+          <li class="stap reveal">
+            <div class="stap__foto">
+              <div class="boog">
+                <img src="../assets/img/massage-stap-1-rug-800.webp" srcset="../assets/img/massage-stap-1-rug-800.webp 600w, ../assets/img/massage-stap-1-rug-1600.webp 1200w" sizes="(max-width: 560px) 78vw, (max-width: 900px) 40vw, 360px" alt="Anja masseert met beide handen de rug van een cliënt die op haar buik ligt" width="600" height="800" loading="lazy">
+              </div>
+              <span class="stap__nummer" aria-hidden="true">1</span>
+            </div>
+            <div>
+              <h3><span class="visually-hidden">Stap 1: </span>Je ligt eerst op je buik</h3>
+              <p>We beginnen met een rustig moment van aanraking, zodat je kunt wennen en je ademhaling vanzelf rustiger wordt. Daarna volgen lange, vloeiende strijkingen over je hele rug, gevolgd door dieper kneedwerk in je schouders en onderrug: precies waar de meeste spanning vaak zit. Vervolgens gaan we naar je benen, van je enkels tot je bovenbenen, en we sluiten de achterzijde af met je voeten.</p>
+            </div>
+          </li>
+
+          <li class="stap reveal" style="--vertraging: .12s">
+            <div class="stap__foto">
+              <div class="boog">
+                <img src="../assets/img/massage-stap-2-schouders-800.webp" srcset="../assets/img/massage-stap-2-schouders-800.webp 800w, ../assets/img/massage-stap-2-schouders-1600.webp 1600w" sizes="(max-width: 560px) 78vw, (max-width: 900px) 40vw, 360px" alt="Anja masseert de schouder en bovenarm van een cliënt" width="800" height="600" loading="lazy">
+              </div>
+              <span class="stap__nummer" aria-hidden="true">2</span>
+            </div>
+            <div>
+              <h3><span class="visually-hidden">Stap 2: </span>Je draait je om</h3>
+              <p>Even een kort rustmoment terwijl je je omdraait, zodat de overgang zacht verloopt. We werken je benen aan de voorkant, daarna je armen en handen, heerlijk voor mentale ontspanning. Je buik krijgt zachte, cirkelende bewegingen die de spijsvertering ondersteunen. Ten slotte je decolleté en schouders, waar we vaak vastgehouden spanning rond je borstkas loslaten.</p>
+            </div>
+          </li>
+
+          <li class="stap reveal" style="--vertraging: .24s">
+            <div class="stap__foto">
+              <div class="boog">
+                <img src="../assets/img/massage-stap-3-hoofd-en-nek-800.webp" srcset="../assets/img/massage-stap-3-hoofd-en-nek-800.webp 800w, ../assets/img/massage-stap-3-hoofd-en-nek-1600.webp 1600w" sizes="(max-width: 560px) 78vw, (max-width: 900px) 40vw, 360px" alt="Anja geeft een cliënt een rustige hoofdhuidmassage" width="800" height="600" loading="lazy">
+              </div>
+              <span class="stap__nummer" aria-hidden="true">3</span>
+            </div>
+            <div>
+              <h3><span class="visually-hidden">Stap 3: </span>Nek, hoofd en gezicht</h3>
+              <p>Je nek wordt zacht losgemaakt, gevolgd door een hoofdhuidmassage. Voor veel mensen is dat het meest ontspannende onderdeel van de hele behandeling. We eindigen bij je gezicht: voorhoofd, slapen en kaak, voor een kalme afronding. Tot slot nemen we een rustig moment om even stil te zijn, zodat je de tijd hebt om weer helemaal te landen voordat je opstaat.</p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="stappenplan__slot reveal">Heb je ergens specifieke klachten of een plek waar je extra aandacht wilt? Laat het gerust weten voor of tijdens de behandeling. De massage wordt altijd op jou afgestemd.</p>
+      </div>
+    </section>
+
+    <svg class="golf" viewBox="0 0 1440 120" preserveAspectRatio="none" style="--van: var(--bg); --naar: var(--mauve-zacht)" aria-hidden="true"><path d="M0,60 C200,110 420,112 640,84 C860,56 1020,20 1220,30 C1330,36 1400,52 1440,60 L1440,120 L0,120 Z"/></svg>
+
+    <!-- ===== Combibehandeling ===== -->
+    <section class="sectie combi" id="combi" aria-labelledby="titel-combi" style="padding-top: clamp(2.5rem, 5vw, 4rem)">
+      <div class="container reveal">
+        <span class="bovenkop">Het beste van beide</span>
+        <h2 id="titel-combi">Combibehandeling</h2>
+        <p class="label-prijs"><span>75 tot 90 minuten</span><span aria-hidden="true">·</span><span>€90</span></p>
+        <p>Kies voor een combibehandeling als je in één sessie het maximale uit je ontspanning wilt halen: de massage lost fysieke spanning op, terwijl de voetreflex dieper werkt op onderliggende klachten en processen. Beide technieken versterken elkaar, waardoor het effect groter en langduriger is dan bij een losse behandeling. Zo bespaar je tijd én krijg je een completere, meer waardevolle behandelervaring.</p>
+        <p class="combi__noot">Een behandeling bij Studio Anja is een aanvulling op reguliere zorg, nooit een vervanging. Ben je onder behandeling bij een arts of specialist? Meld dit dan bij de intake, zodat ik daar rekening mee kan houden.</p>
+      </div>
+    </section>
+
+    <svg class="golf golf--gespiegeld" viewBox="0 0 1440 120" preserveAspectRatio="none" style="--van: var(--mauve-zacht); --naar: var(--bg)" aria-hidden="true"><path d="M0,70 C180,115 380,118 560,92 C760,62 900,18 1100,26 C1260,32 1360,62 1440,78 L1440,120 L0,120 Z"/></svg>
   </main>
 
   <!-- ============ FOOTER ============ -->
