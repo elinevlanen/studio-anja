@@ -94,6 +94,24 @@ Zonder JavaScript zijn de lijnen verborgen en staan alle stappen gewoon open.
 2. Geef hem een beschrijvende naam met kleine letters en streepjes, zoals `voetreflex-behandeling-uden-800.webp`.
 3. Schrijf een `alt` tekst in het Nederlands die beschrijft wat er op de foto staat.
 
+## Online: GitHub Pages
+
+De site staat op GitHub (`elinevlanen/studio-anja`) en wordt gepubliceerd met GitHub Pages.
+Elke `git push` naar de branch `main` zet de nieuwe versie binnen een minuut online.
+
+**Nu: testversie op `test.studio-anja.nl`**
+
+- Het bestand `CNAME` vertelt GitHub op welk adres de site staat.
+- `robots.txt` houdt zoekmachines voorlopig weg.
+- Bij de domeinbeheerder staat een CNAME-record: `test` wijst naar `elinevlanen.github.io`.
+
+**Later: overstappen naar `studio-anja.nl`**
+
+1. Zet in `CNAME` het adres `studio-anja.nl`.
+2. Zet `robots.txt` terug naar "alles toestaan" (de tekst staat in het bestand zelf).
+3. Pas bij de domeinbeheerder de DNS aan voor het hoofddomein (de A-records van GitHub Pages).
+4. Zet in GitHub bij Settings > Pages het nieuwe adres en vink "Enforce HTTPS" aan.
+
 ## Lokaal bekijken
 
 Open de map in VS Code en gebruik de extensie **Live Server** (rechtsklik op `index.html` > "Open with Live Server").
