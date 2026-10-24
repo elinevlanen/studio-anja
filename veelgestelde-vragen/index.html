@@ -60,11 +60,149 @@
 
   <!-- ============ INHOUD ============ -->
   <main id="inhoud">
-    <!-- Deze pagina wordt in een volgende fase gebouwd. Dit blok is tijdelijk. -->
+    <!-- ===== Intro ===== -->
+    <section class="sectie" aria-labelledby="titel-vragen" style="padding-bottom: 0">
+      <div class="container duo duo--omgekeerd">
+        <div class="rond reveal" style="max-width: 320px">
+          <img src="../assets/img/intakegesprek-800.webp" srcset="../assets/img/intakegesprek-800.webp 600w, ../assets/img/intakegesprek-1600.webp 1200w" sizes="(max-width: 800px) 300px, 320px" alt="Anja voert aan tafel een rustig intakegesprek met een cliënt" width="600" height="800" fetchpriority="high" style="object-position: 50% 35%">
+        </div>
+        <div class="duo__tekst reveal" style="--vertraging: .1s">
+          <span class="bovenkop">Goed om te weten</span>
+          <h1 id="titel-vragen">Veelgestelde vragen</h1>
+          <p>Hier vind je antwoorden op de vragen die ik het vaakst krijg. Klik op een vraag om het antwoord te lezen.</p>
+          <ul class="vragen-nav" aria-label="Ga naar een onderwerp">
+            <li><a href="#eerste-afspraak">Je eerste afspraak</a></li>
+            <li><a href="#behandeling">Behandeling en klachten</a></li>
+            <li><a href="#praktisch">Kosten en praktisch</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== De vragen =====
+         Elke vraag is een <details>: klik op de <summary> en het antwoord klapt open. -->
     <section class="sectie">
-      <div class="container reveal">
-        <h1>Veelgestelde vragen</h1>
-        <p>Deze pagina volgt in een volgende fase.</p>
+      <div class="container">
+        <div class="vragen">
+
+        <div class="vragen-groep" id="eerste-afspraak">
+          <h2 class="reveal">Je eerste afspraak</h2>
+
+          <details class="vraag">
+            <summary>Wat kan ik verwachten tijdens een eerste behandeling?</summary>
+            <div class="vraag__antwoord"><p>Bij de eerste afspraak nemen we eerst even de tijd voor een kort intakegesprek: wat speelt er, waar loop je tegenaan en wat hoop je te bereiken. Daarna volgt de behandeling zelf, in een rustige, veilige omgeving. Na afloop bespreken we samen wat ik heb gevoeld en wat een goed vervolg zou zijn.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Hoe lang duurt een behandeling en wat kost het?</summary>
+            <div class="vraag__antwoord"><p>Een voetreflexbehandeling en een holistische total body massage duren allebei 60 minuten, een combibehandeling 75 tot 90 minuten. Bij een eerste afspraak neem ik extra tijd voor de intake, zodat dat niet van je behandeltijd afgaat. De kosten vind je op de pagina <a href="../behandelingen/">behandelingen en tarieven</a>. Neem gerust contact op als je twijfelt of een bepaalde behandeling bij je klacht past.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Moet ik me uitkleden voor een voetreflexbehandeling?</summary>
+            <div class="vraag__antwoord"><p>Nee. Voor voetreflextherapie hoef je alleen je sokken en schoenen uit te doen. Bij een holistische massage kleed je je gedeeltelijk uit, tot op je gemak, en lig je onder een handdoek of doek. Jij bepaalt wat prettig voelt.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Wat trek ik het beste aan voor een voetreflexbehandeling?</summary>
+            <div class="vraag__antwoord"><p>Comfortabele kleding met wijde pijpen is fijn, zodat je broek makkelijk tot boven je enkels omhoog kan zonder knellen. Sokken en schoenen doe je bij binnenkomst uit.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Moet ik zelf een handdoek meenemen?</summary>
+            <div class="vraag__antwoord"><p>Nee, dat hoeft niet. Ik zorg voor schone handdoeken en linnen, jij hoeft alleen jezelf mee te nemen.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Moet ik mijn make-up verwijderen voor een behandeling?</summary>
+            <div class="vraag__antwoord"><p>Bij een voetreflexbehandeling is dit uiteraard niet nodig. Tijdens de holistische total body massage wordt ook je gezicht gemasseerd. Het is fijn als je je make-up van tevoren verwijdert, maar ik kan dit ook ter plekke voor je doen. Wil je liever niet dat je gezicht gemasseerd wordt? Geef het gerust van tevoren aan.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Doet het pijn?</summary>
+            <div class="vraag__antwoord"><p>Een behandeling mag nooit echt pijn doen. Sommige zones of spieren kunnen gevoelig zijn, zeker als er ergens spanning of een blokkade zit, maar dat voelt eerder als 'gevoelige druk' dan als pijn. Geef het altijd aan als iets niet prettig aanvoelt, dan pas ik het direct aan.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Ik ben kriebelig aan mijn voeten, is dat een probleem?</summary>
+            <div class="vraag__antwoord"><p>Helemaal niet, dat komt vaker voor dan je denkt. Een stevige, rustige aanraking voelt meestal al snel anders dan een lichte kriebel. Laat het me weten, dan pas ik mijn aanpak daarop aan.</p></div>
+          </details>
+        </div>
+
+        <div class="vragen-groep" id="behandeling">
+          <h2 class="reveal">Behandeling en klachten</h2>
+
+          <details class="vraag">
+            <summary>Voor welke klachten kan ik bij jou terecht?</summary>
+            <div class="vraag__antwoord"><p>Denk aan stress en vermoeidheid, slaapproblemen, spanningsklachten, hormonale klachten, en ondersteuning bij herstel na blessures of overbelasting. Twijfel je of jouw klacht hierbij past? Neem gerust contact op, dan denk ik met je mee.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Kun je me ook helpen bij stress, slaapproblemen of vermoeidheid?</summary>
+            <div class="vraag__antwoord"><p>Ja, dit zijn juist klachten waar voetreflextherapie en holistische massage heel goed bij kunnen helpen. Beide behandelingen richten zich op ontspanning van lichaam en zenuwstelsel, wat vaak al na één sessie merkbaar rustiger voelt.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Hoe vaak moet ik komen voor resultaat?</summary>
+            <div class="vraag__antwoord"><p>Dat verschilt per persoon en per klacht. Voor acute klachten kan één of enkele behandelingen al verlichting geven; bij chronische klachten werken we vaak in een kort traject van meerdere sessies. Na de eerste afspraak geef ik je een eerlijk advies over wat past bij jouw situatie.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Hoe ziet een behandeltraject eruit?</summary>
+            <div class="vraag__antwoord"><p>Elk traject begint met een intake om jouw klacht en wens helder te krijgen. Op basis daarvan stel ik een behandelplan op, meestal opgebouwd in fases: eerst rust en opening, dan gericht werken aan de klacht, en tot slot afronding en advies voor thuis.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Kan ik dit combineren met reguliere medische zorg?</summary>
+            <div class="vraag__antwoord"><p>Ja, voetreflextherapie en holistische massage zijn een mooie aanvulling naast reguliere zorg, niet een vervanging ervan. Ben je onder behandeling bij een arts of specialist, meld dit dan bij de intake, zodat ik daar rekening mee kan houden.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Is voetreflextherapie wetenschappelijk bewezen?</summary>
+            <div class="vraag__antwoord"><p>Eerlijk gezegd: het wetenschappelijk bewijs voor voetreflextherapie is beperkt en wisselend. Wat ik wel keer op keer terugzie bij cliënten is diepe ontspanning en meer lichaamsbewustzijn, en dat heeft op zichzelf al waarde. Ik beloof je geen wondermiddel, wel een zorgvuldige en deskundige behandeling.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Wat zijn je opleidingen en kwalificaties?</summary>
+            <div class="vraag__antwoord"><p>Ik ben gediplomeerd in zowel holistische massage als voetreflextherapie. Ik blijf mezelf continu bijscholen, zodat ik je de best mogelijke behandeling kan bieden.</p></div>
+          </details>
+        </div>
+
+        <div class="vragen-groep" id="praktisch">
+          <h2 class="reveal">Kosten en praktisch</h2>
+
+          <details class="vraag">
+            <summary>Wordt de behandeling vergoed door mijn zorgverzekering?</summary>
+            <div class="vraag__antwoord"><p>Nee, de behandeling wordt niet vergoed door de zorgverzekering, omdat ik niet aangesloten ben bij de branchevereniging. Daarnaast wegen de kosten van een aanvullende verzekering niet op tegen de vergoeding die je krijgt vanuit de zorgverzekering.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Hoe kan ik betalen?</summary>
+            <div class="vraag__antwoord"><p>Je kunt direct na de behandeling contant betalen of pinnen via tap to pay.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Krijg ik een factuur?</summary>
+            <div class="vraag__antwoord"><p>Standaard krijg je geen factuur mee. Heb je er wel een nodig, geef dit dan even aan, dan zorg ik dat je die krijgt.</p></div>
+          </details>
+
+          <details class="vraag">
+            <summary>Waar vind ik de praktijk?</summary>
+            <div class="vraag__antwoord"><p>Studio Anja is gevestigd aan de Crocusstraat 5, 5402 ZH in Uden. Bij de voordeur hangt een bordje met de naam van de praktijk, dus je kunt me niet missen.</p></div>
+          </details>
+        </div>
+
+        <!-- Vraag er niet bij? -->
+        <div class="vragen-contact reveal">
+          <h2>Staat je vraag er niet bij?</h2>
+          <p>Stel hem gerust. Ik denk graag met je mee.</p>
+          <p class="kaart__links">
+            <a href="mailto:anja@studio-anja.nl">anja@studio-anja.nl</a>
+            <a href="tel:+31625100512">06-25100512</a>
+            <a href="https://wa.me/31625100512" rel="noopener">WhatsApp</a>
+          </p>
+        </div>
+        </div>
       </div>
     </section>
   </main>

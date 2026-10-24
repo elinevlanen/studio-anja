@@ -8,7 +8,8 @@
    5. Footer en contact
    6. Homepage
    7. Behandelpagina (tarieven en stappen)
-   8. Animaties en prefers-reduced-motion
+   8. Over mij, veelgestelde vragen, algemene voorwaarden
+   9. Animaties en prefers-reduced-motion
    ========================================================= */
 
 
@@ -1024,7 +1025,247 @@ main { padding-top: var(--header-h); }
 }
 
 
-/* ---------- 8. Animaties ---------- */
+/* ---------- 8. Over mij, veelgestelde vragen, algemene voorwaarden ---------- */
+
+/* Twee kolommen: tekst en beeld (gebruikt op Over mij en Veelgestelde vragen) */
+.duo {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: center;
+}
+.duo--omgekeerd > :first-child { order: 2; }
+.duo__tekst { max-width: 36rem; }
+
+/* Ronde foto */
+.rond {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100%;
+  max-width: 440px;
+  justify-self: center;
+}
+.rond img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 800px) {
+  .duo { grid-template-columns: 1fr; }
+  .duo--omgekeerd > :first-child { order: 0; }
+  .rond { max-width: 300px; }
+}
+
+/* Klaproos-blok op saliegroen */
+.klaproos {
+  background: var(--salie-diep);
+  color: #fff;
+  text-align: center;
+  padding-block: clamp(2rem, 4vw, 3.5rem) var(--sectie);
+}
+.klaproos .container { max-width: 42rem; }
+.klaproos__bloem {
+  display: grid;
+  place-items: center;
+  width: 9rem;
+  height: 9rem;
+  margin: 0 auto 2rem;
+  border-radius: 50%;
+  background: rgb(255 255 255 / .85);
+}
+.klaproos__bloem img { width: 62%; height: auto; }
+.klaproos p {
+  font-family: var(--font-kop);
+  font-size: clamp(1.15rem, 1.05rem + .5vw, 1.45rem);
+  line-height: 1.65;
+}
+
+/* Opleiding en praktijk */
+.icoon-groot {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--mauve-donker);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.tekstblok + .tekstblok { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+
+/* Twee boogfoto's die een beetje verspringen */
+.fotoduo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+.fotoduo .boog { aspect-ratio: 3 / 4; }
+.fotoduo .boog:last-child { margin-top: 4rem; }
+
+/* Citaat op mauve */
+.citaat {
+  background: var(--mauve-diep);
+  color: #fff;
+  text-align: center;
+  padding-block: var(--sectie);
+}
+.citaat blockquote {
+  max-width: 46rem;
+  margin: 0 auto;
+  font-family: var(--font-kop);
+  font-style: italic;
+  font-size: clamp(1.35rem, 1.1rem + 1.1vw, 2rem);
+  line-height: 1.5;
+}
+.citaat blockquote::before {
+  content: "\201C";                       /* het openingsaanhalingsteken */
+  display: block;
+  font-size: 3.5em;
+  line-height: .6;
+  margin-bottom: .2em;
+  opacity: .5;
+}
+.citaat p { margin: 0; }
+.citaat cite {
+  display: block;
+  margin-top: 1.5rem;
+  font-family: var(--font-tekst);
+  font-style: normal;
+  font-size: .8rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  opacity: .85;
+}
+
+/* ---- Veelgestelde vragen ---- */
+.vragen-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: 2rem;
+  padding: 0;
+  list-style: none;
+}
+.vragen-nav a {
+  display: inline-block;
+  padding: .55em 1.2em;
+  border: 1px solid rgb(138 95 120 / .35);
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: background-color .3s var(--ease), color .3s var(--ease);
+}
+.vragen-nav a:hover { background: var(--mauve-donker); color: #fff; }
+
+.vragen { max-width: 52rem; }
+.vragen-groep + .vragen-groep { margin-top: clamp(3rem, 6vw, 4.5rem); }
+.vragen-groep h2 { font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem); }
+
+/* Uitklapvraag. <details> en <summary> zijn HTML-elementen die zelf al
+   open en dicht kunnen: daar is geen JavaScript voor nodig. */
+.vraag { border-bottom: 1px solid rgb(79 60 70 / .14); }
+.vraag:first-of-type { border-top: 1px solid rgb(79 60 70 / .14); }
+.vraag summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.3rem 0;
+  list-style: none;                       /* geen standaard driehoekje */
+  cursor: pointer;
+  font-family: var(--font-kop);
+  font-size: clamp(1.05rem, 1rem + .3vw, 1.25rem);
+  line-height: 1.4;
+  color: var(--mauve-donker);
+  transition: color .3s var(--ease);
+}
+.vraag summary::-webkit-details-marker { display: none; }
+.vraag summary:hover { color: var(--tekst); }
+
+/* Plusje dat een minnetje wordt */
+.vraag summary::after {
+  content: "";
+  flex-shrink: 0;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  background:
+    linear-gradient(currentColor, currentColor) center / 11px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 1.5px 11px no-repeat,
+    var(--mauve-zacht);
+  transition: transform .45s var(--ease), background-size .45s var(--ease);
+}
+.vraag[open] summary::after {
+  transform: rotate(180deg);
+  background-size: 11px 1.5px, 1.5px 0, auto;
+}
+
+.vraag__antwoord { padding: 0 3.5rem 1.4rem 0; }
+.vraag__antwoord p:last-child { margin-bottom: 0; }
+
+/* Soepel open- en dichtschuiven. Werkt in nieuwe browsers (Chrome, Edge);
+   in andere browsers springt het antwoord gewoon open. */
+:root { interpolate-size: allow-keywords; }
+.vraag::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size .5s var(--ease), content-visibility .5s allow-discrete;
+}
+.vraag[open]::details-content { block-size: auto; }
+
+.vragen-contact {
+  max-width: 52rem;
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border-radius: var(--radius);
+  background: var(--mauve-zacht);
+}
+.vragen-contact h2 { font-size: clamp(1.5rem, 1.3rem + .8vw, 2rem); margin-bottom: .5rem; }
+.vragen-contact .kaart__links { margin-top: 1rem; font-size: .95rem; }
+
+@media (max-width: 560px) {
+  .vraag__antwoord { padding-right: 0; }
+}
+
+/* ---- Algemene voorwaarden ---- */
+.voorwaarden {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 46rem);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+/* Inhoudsopgave die blijft staan tijdens het lezen */
+.voorwaarden__inhoud {
+  position: sticky;
+  top: calc(var(--header-h) + 1.5rem);
+  font-size: .85rem;
+}
+.voorwaarden__inhoud ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; }
+.voorwaarden__inhoud a { color: var(--tekst); text-decoration: none; }
+.voorwaarden__inhoud a:hover { color: var(--mauve-donker); text-decoration: underline; }
+
+.artikel + .artikel { margin-top: 2.25rem; }
+.artikel h2 {
+  font-size: clamp(1.25rem, 1.15rem + .4vw, 1.5rem);
+  margin-bottom: .75rem;
+}
+/* Genummerde regels met het nummer in een eigen kolom */
+.artikel p {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  margin-bottom: .6rem;
+}
+.artikel p span:first-child { color: var(--tekst-zacht); font-variant-numeric: tabular-nums; }
+
+@media (max-width: 900px) {
+  .voorwaarden { grid-template-columns: 1fr; }
+  .voorwaarden__inhoud { position: static; }
+  .voorwaarden__inhoud ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+
+/* ---------- 9. Animaties ---------- */
 /* Elementen met class "reveal" faden rustig in zodra ze in beeld komen.
    Alleen als JavaScript werkt (class "js" op <html>), anders blijft alles
    gewoon zichtbaar. */
