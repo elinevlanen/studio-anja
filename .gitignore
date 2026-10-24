@@ -1,0 +1,4 @@
+# Bestanden die Windows en macOS zelf aanmaken: niet meenemen
+Thumbs.db
+desktop.ini
+.DS_Store
