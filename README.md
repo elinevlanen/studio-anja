@@ -12,6 +12,7 @@ studio-anja/
 ├── over-mij/index.html              Over Anja
 ├── veelgestelde-vragen/index.html   Veelgestelde vragen
 ├── algemene-voorwaarden/index.html  Algemene voorwaarden
+├── 404.html                         Pagina "niet gevonden" (eigen opmaak, werkt op elk adres)
 ├── assets/
 │   ├── css/style.css                Alle opmaak. Kleuren en lettertypes staan bovenaan als variabelen.
 │   ├── js/main.js                   Mobiel menu, header bij scrollen, rustig infaden

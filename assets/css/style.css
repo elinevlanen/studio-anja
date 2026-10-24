@@ -101,6 +101,17 @@ img { display: block; max-width: 100%; height: auto; }
 
 ul { padding-left: 1.2em; }
 
+/* Losse tekstlinks een groter klikvlak geven, zodat ze met een vinger
+   makkelijk te raken zijn (minstens 24 pixels hoog, de norm van WCAG 2.2) */
+.contact-lijst a,
+.footer-links a,
+.voorwaarden__inhoud a,
+.kaart__links a,
+.link-pijl {
+  display: inline-block;
+  padding-block: .55rem .2em;
+}
+
 /* Zichtbare focusrand voor wie met het toetsenbord navigeert */
 :focus-visible {
   outline: 2px solid var(--mauve-donker);
@@ -688,7 +699,7 @@ main { padding-top: var(--header-h); }
   max-width: 40rem;
   margin: 4rem auto 0;
   font-size: .9rem;
-  color: var(--tekst-zacht);
+  color: var(--tekst);       /* --tekst-zacht is op dit roze vlak te licht */
 }
 
 @media (max-width: 800px) {
@@ -1008,7 +1019,7 @@ main { padding-top: var(--header-h); }
 @media (max-width: 560px) {
   .stappenpad { --beeld: 92px; }
   .stap { gap: 1.25rem; }
-  .stap__nummer { width: 2.2rem; height: 2.2rem; font-size: .7rem; }
+  .stap__nummer { width: 2.3rem; height: 2.3rem; font-size: .75rem; }
 }
 
 /* Combibehandeling */
@@ -1021,7 +1032,7 @@ main { padding-top: var(--header-h); }
 .combi__noot {
   margin-top: 2rem;
   font-size: .9rem;
-  color: var(--tekst-zacht);
+  color: var(--tekst);       /* --tekst-zacht is op dit roze vlak te licht */
 }
 
 

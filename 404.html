@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pagina niet gevonden | Studio Anja</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display&display=swap">
+
+  <!-- Deze pagina kan op elk adres verschijnen. Daarom staat de opmaak hier zelf in,
+       in plaats van in assets/css/style.css (dat pad klopt niet vanuit elke map). -->
+  <style>
+    :root { --mauve-donker: #8a5f78; --tekst: #6b5560; --bg: #f9f6f8; --mauve-zacht: #ead9e2; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2rem 1.25rem;
+      box-sizing: border-box;
+      background: var(--bg);
+      color: var(--tekst);
+      font-family: "Montserrat", Arial, sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      text-align: center;
+    }
+    main { max-width: 32rem; }
+    .cijfer {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(4rem, 15vw, 7rem);
+      line-height: 1;
+      color: var(--mauve-zacht);
+    }
+    h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      color: var(--mauve-donker);
+      margin: .5rem 0 1rem;
+    }
+    a.knop {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: .95em 2em;
+      border-radius: 999px;
+      background: var(--mauve-donker);
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    a.knop:hover { background: var(--tekst); }
+    a.knop:focus-visible { outline: 2px solid var(--mauve-donker); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="cijfer" aria-hidden="true">404</div>
+    <h1>Deze pagina bestaat niet (meer)</h1>
+    <p>Misschien is het adres veranderd of zit er een tikfout in. Via de homepage vind je alles over de behandelingen, Anja en de praktijk in Uden.</p>
+    <a class="knop" id="naar-home" href="/">Naar de homepage</a>
+  </main>
+
+  <script>
+    // Op het tijdelijke GitHub-adres staat de site in een submap
+    // (bijvoorbeeld gebruiker.github.io/studio-anja/). Dan moet de link daarheen wijzen.
+    if (location.hostname.endsWith('github.io')) {
+      const map = location.pathname.split('/')[1];
+      if (map) document.getElementById('naar-home').href = '/' + map + '/';
+    }
+  </script>
+</body>
+</html>
