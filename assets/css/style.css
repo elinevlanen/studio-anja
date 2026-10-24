@@ -1054,29 +1054,64 @@ main { padding-top: var(--header-h); }
   .rond { max-width: 300px; }
 }
 
-/* Klaproos-blok op saliegroen */
-.klaproos {
-  background: var(--salie-diep);
-  color: #fff;
-  text-align: center;
-  padding-block: clamp(2rem, 4vw, 3.5rem) var(--sectie);
-}
-.klaproos .container { max-width: 42rem; }
-.klaproos__bloem {
+/* Klaproos-kaartje onder de missie */
+.klaproos-noot {
   display: grid;
-  place-items: center;
-  width: 9rem;
-  height: 9rem;
-  margin: 0 auto 2rem;
-  border-radius: 50%;
-  background: rgb(255 255 255 / .85);
+  grid-template-columns: 4.5rem 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem 1.25rem 1.25rem;
+  border-radius: var(--radius);
+  background: var(--bg-roze);
+  box-shadow: 0 20px 45px -35px rgb(79 60 70 / .35);
 }
-.klaproos__bloem img { width: 62%; height: auto; }
-.klaproos p {
+.klaproos-noot p {
+  margin: 0;
   font-family: var(--font-kop);
-  font-size: clamp(1.15rem, 1.05rem + .5vw, 1.45rem);
-  line-height: 1.65;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--tekst);
 }
+.klaproos-noot__bloem {
+  width: 100%;
+  height: auto;
+  transform-origin: 50% 100%;             /* draaien vanuit de steel */
+}
+@media (max-width: 560px) {
+  .klaproos-noot { grid-template-columns: 1fr; gap: .75rem; padding: 1.25rem; }
+  .klaproos-noot__bloem { width: 3.25rem; }
+}
+
+/* De bloei: zodra het kaartje in beeld komt (class "is-zichtbaar"),
+   groeit de klaproos van onder naar boven open en wiegt daarna zacht. */
+.js .klaproos-noot .klaproos-noot__bloem { clip-path: inset(100% 0 0 0); }
+.js .klaproos-noot.is-zichtbaar .klaproos-noot__bloem {
+  animation:
+    bloeien 2.2s var(--ease) .5s forwards,
+    wiegen 6s ease-in-out 2.7s infinite alternate;
+}
+@keyframes bloeien {
+  0%   { clip-path: inset(100% 0 0 0); transform: scale(.7) rotate(-12deg); }
+  60%  { clip-path: inset(0 0 0 0);    transform: scale(1.06) rotate(3deg); }
+  100% { clip-path: inset(0 0 0 0);    transform: scale(1) rotate(0deg); }
+}
+@keyframes wiegen {
+  from { clip-path: inset(0 0 0 0); transform: rotate(-3deg); }
+  to   { clip-path: inset(0 0 0 0); transform: rotate(3deg); }
+}
+
+/* Over mij: alles een maatje kleiner, zodat de pagina compact blijft */
+.pagina-over-mij h1 { font-size: clamp(2rem, 1.5rem + 2vw, 3rem); }
+.pagina-over-mij .rond { max-width: 360px; }
+.pagina-over-mij .tekstblok h2 { font-size: clamp(1.45rem, 1.25rem + .8vw, 1.9rem); }
+.pagina-over-mij .icoon-groot { width: 2.5rem; height: 2.5rem; margin-bottom: .75rem; }
+.pagina-over-mij .tekstblok + .tekstblok { margin-top: 2rem; }
+.pagina-over-mij .fotoduo { max-width: 420px; justify-self: center; }
+.pagina-over-mij .fotoduo .boog:last-child { margin-top: 2.5rem; }
+.pagina-over-mij .citaat { padding-block: clamp(2rem, 4vw, 3rem); }
+.pagina-over-mij .citaat blockquote { font-size: clamp(1.2rem, 1rem + .9vw, 1.6rem); }
 
 /* Opleiding en praktijk */
 .icoon-groot {
@@ -1300,5 +1335,7 @@ main { padding-top: var(--header-h); }
   .js .stap:not(.is-actief) .stap__nummer { opacity: 1; transform: none; }
   .js .stap .stap__adem { opacity: 1; animation: none; }
   .stap:hover .stap__adem { scale: 1; }
+  /* Klaproos meteen in bloei, zonder wiegen */
+  .js .klaproos-noot .klaproos-noot__bloem { clip-path: none; animation: none; }
   .js .stap:not(.is-actief) .stap__tekst { opacity: 1; transform: none; }
 }
