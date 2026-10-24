@@ -49,7 +49,7 @@ Tip: zoek in je editor op de tekst die je wilt veranderen in de hele map ("zoeke
 | `--bg-roze`      | `#f8f1f5` | Achtergrond, iets rozer                    |
 | `--tekst-zacht`  | `#7e656f` | Kleine bijteksten en labels                |
 | `--tekst`        | `#6b5560` | Lopende tekst en menu                      |
-| `--tekst-diep`   | `#4f3c46` | Tekst op het saliegroene vlak              |
+| `--salie-diep`   | `#8a9c76` | Saliegroen vlak waar witte tekst op staat  |
 | `--mauve-donker` | `#8a5f78` | Mauve koppen en knoppen op een lichte achtergrond |
 | `--mauve-diep`   | `#94687f` | Mauve vlak waar witte tekst op staat       |
 

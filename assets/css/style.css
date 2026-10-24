@@ -27,11 +27,12 @@
      Tussen haakjes het contrast met de achtergrond (minimaal 4,5 nodig). */
   --tekst-zacht: #7e656f;    /* kleine bijteksten, labels (4,9 op --bg) */
   --tekst: #6b5560;          /* lopende tekst, menu (6,3 op --bg) */
-  --tekst-diep: #4f3c46;     /* tekst op het saliegroene vlak (5,3) */
+  --tekst-diep: #4f3c46;     /* extra donkere tekst, voor als het nodig is */
 
   /* Donkere varianten van de huisstijl voor leesbaarheid */
   --mauve-donker: #8a5f78;   /* mauve koppen en knoppen op licht (4,9) */
   --mauve-diep: #94687f;     /* mauve vlak met witte tekst erop (4,6) */
+  --salie-diep: #8a9c76;     /* salie vlak met witte tekst erop (3,0) */
   --salie-donker: #5f7050;
   --mauve-zacht: #ead9e2;    /* heel licht mauve vlak (zoals "Voordelen") */
 
@@ -202,9 +203,11 @@ ul { padding-left: 1.2em; }
   background: var(--van, transparent);
   color: var(--naar, var(--mauve));
   fill: currentColor;
-  margin-block: -1px;   /* voorkomt een haarlijntje tussen golf en vlak */
+  margin-block: -1px -3px;   /* overlapt een paar pixels: voorkomt een haarlijntje tussen golf en vlak */
 }
 .golf--gespiegeld { transform: scaleX(-1); }
+/* Het vlak na een golf ligt er net overheen, zodat de onderrand van de golf wegvalt */
+.golf + * { position: relative; }
 
 
 /* ---------- 4. Header en menu ---------- */
@@ -527,16 +530,16 @@ main { padding-top: var(--header-h); }
   .hero__tekst { padding-block: 0 5.5rem; }
 }
 
-/* Gekleurd vlak voor een behandeling (mauve of salie).
-   Mauve: een paar tinten donkerder, zodat witte tekst goed leesbaar is.
-   Salie: donkere pruimtint als tekstkleur. */
+/* Gekleurd vlak voor een behandeling (mauve of salie), met lichte tekst.
+   Beide kleuren zijn een paar tinten donkerder dan de huisstijl,
+   zodat de witte tekst beter leesbaar is. */
 .behandeling {
   padding-block: clamp(3rem, 7vw, 6rem);
+  color: #fff;
 }
-.behandeling--mauve { background: var(--mauve-diep); color: #fff; }
-.behandeling--salie { background: var(--salie); color: var(--tekst-diep); }
-.behandeling--mauve h2 { color: #fff; }
-.behandeling--salie h2 { color: var(--tekst-diep); }
+.behandeling--mauve { background: var(--mauve-diep); }
+.behandeling--salie { background: var(--salie-diep); }
+.behandeling h2 { color: #fff; }
 
 .behandeling__grid {
   display: grid;
@@ -599,7 +602,7 @@ main { padding-top: var(--header-h); }
 }
 .behandeling a.link-pijl { color: inherit; }   /* zelfde kleur als de tekst van het vlak */
 .behandeling a.link-pijl:hover { color: inherit; opacity: .8; }
-.behandeling--mauve .label-prijs { background: rgb(255 255 255 / .16); }
+.behandeling .label-prijs { background: rgb(255 255 255 / .18); }
 
 @media (max-width: 800px) {
   .behandeling__grid { grid-template-columns: 1fr; }
@@ -611,6 +614,7 @@ main { padding-top: var(--header-h); }
 }
 
 /* Over Anja: foto met een kaart die er half overheen valt */
+.intro-anja { background: var(--bg); }
 .intro-anja__grid {
   display: grid;
   grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
