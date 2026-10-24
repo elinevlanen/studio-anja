@@ -45,14 +45,18 @@ Tip: zoek in je editor op de tekst die je wilt veranderen in de hele map ("zoeke
 | `--mauve`        | `#b2879f` | Vlakken, accenten, voetreflex              |
 | `--oudroze`      | `#cca29f` | Accent                                     |
 | `--salie`        | `#b1c09e` | Vlakken voor holistische massage           |
-| `--nachtblauw`   | `#192a3d` | Lopende tekst                              |
 | `--bg`           | `#f9f6f8` | Achtergrond                                |
 | `--bg-roze`      | `#f8f1f5` | Achtergrond, iets rozer                    |
-| `--mauve-donker` | `#8a5f78` | Mauve **tekst** en knoppen (beter leesbaar) |
-| `--salie-donker` | `#5f7050` | Groene **tekst** (beter leesbaar)          |
+| `--tekst-zacht`  | `#7e656f` | Kleine bijteksten en labels                |
+| `--tekst`        | `#6b5560` | Lopende tekst en menu                      |
+| `--tekst-diep`   | `#4f3c46` | Tekst op het saliegroene vlak              |
+| `--mauve-donker` | `#8a5f78` | Mauve koppen en knoppen op een lichte achtergrond |
+| `--mauve-diep`   | `#94687f` | Mauve vlak waar witte tekst op staat       |
 
 De lichte huisstijlkleuren zijn prachtig als vlak, maar te licht om als tekst goed leesbaar te zijn.
-Daarom zijn er donkere varianten voor tekst.
+Daarom zijn er een paar tinten donkerdere varianten, binnen dezelfde kleurfamilie.
+Voor leesbare tekst geldt de norm (WCAG): tekst moet minstens 4,5 keer zoveel contrast hebben als de achtergrond.
+Alle tekstkleuren hierboven halen dat. `--nachtblauw` (`#192a3d`) staat nog in de stylesheet, maar wordt niet meer gebruikt.
 
 ## Lettertypes
 

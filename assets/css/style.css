@@ -19,13 +19,19 @@
   --mauve: #b2879f;          /* accent, knoppen, voetreflex */
   --oudroze: #cca29f;        /* accent */
   --salie: #b1c09e;          /* holistische massage */
-  --nachtblauw: #192a3d;     /* lopende tekst */
+  --nachtblauw: #192a3d;     /* in de huisstijl, op de site niet meer gebruikt */
   --bg: #f9f6f8;             /* achtergrond */
   --bg-roze: #f8f1f5;        /* achtergrond, iets rozer */
 
-  /* Donkere varianten voor tekst. De lichte huisstijlkleuren zijn te licht
-     om goed leesbaar te zijn als tekst op een lichte achtergrond. */
-  --mauve-donker: #8a5f78;
+  /* Tekstkleuren: warme pruimtinten rond #7e656f.
+     Tussen haakjes het contrast met de achtergrond (minimaal 4,5 nodig). */
+  --tekst-zacht: #7e656f;    /* kleine bijteksten, labels (4,9 op --bg) */
+  --tekst: #6b5560;          /* lopende tekst, menu (6,3 op --bg) */
+  --tekst-diep: #4f3c46;     /* tekst op het saliegroene vlak (5,3) */
+
+  /* Donkere varianten van de huisstijl voor leesbaarheid */
+  --mauve-donker: #8a5f78;   /* mauve koppen en knoppen op licht (4,9) */
+  --mauve-diep: #94687f;     /* mauve vlak met witte tekst erop (4,6) */
   --salie-donker: #5f7050;
   --mauve-zacht: #ead9e2;    /* heel licht mauve vlak (zoals "Voordelen") */
 
@@ -63,7 +69,7 @@ html {
 body {
   margin: 0;
   background: var(--bg);
-  color: var(--nachtblauw);
+  color: var(--tekst);
   font-family: var(--font-tekst);
   font-weight: 300;
   font-size: clamp(1rem, .96rem + .2vw, 1.0625rem);
@@ -86,7 +92,7 @@ h3 { font-size: clamp(1.35rem, 1.2rem + .6vw, 1.7rem); }
 p { margin: 0 0 1.1em; text-wrap: pretty; }
 
 a { color: var(--mauve-donker); text-underline-offset: .2em; }
-a:hover { color: var(--nachtblauw); }
+a:hover { color: var(--tekst); }
 
 img { display: block; max-width: 100%; height: auto; }
 
@@ -106,7 +112,7 @@ ul { padding-left: 1.2em; }
   top: -4rem;
   z-index: 100;
   padding: .75rem 1.25rem;
-  background: var(--nachtblauw);
+  background: var(--tekst);
   color: #fff;
   border-radius: 999px;
   transition: top .2s;
@@ -159,7 +165,7 @@ ul { padding-left: 1.2em; }
   text-decoration: none;
   transition: background-color .4s var(--ease), transform .4s var(--ease);
 }
-.knop:hover { background: var(--nachtblauw); color: #fff; transform: translateY(-2px); }
+.knop:hover { background: var(--tekst); color: #fff; transform: translateY(-2px); }
 
 /* Tekstlink met een lijntje dat bij hover meegroeit */
 .link-pijl {
@@ -217,7 +223,7 @@ ul { padding-left: 1.2em; }
 /* Na een stukje scrollen wordt hij iets minder doorzichtig (via main.js) */
 .site-header.is-gescrold {
   background: rgb(249 246 248 / .82);
-  box-shadow: 0 1px 0 rgb(25 42 61 / .06), 0 10px 30px -18px rgb(25 42 61 / .25);
+  box-shadow: 0 1px 0 rgb(79 60 70 / .06), 0 10px 30px -18px rgb(79 60 70 / .25);
 }
 
 .site-header .container {
@@ -244,7 +250,7 @@ ul { padding-left: 1.2em; }
   font-weight: 500;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--nachtblauw);
+  color: var(--tekst);
   text-decoration: none;
   padding-block: .5rem;
 }
@@ -270,7 +276,7 @@ ul { padding-left: 1.2em; }
   border: 0;
   border-radius: 50%;
   background: transparent;
-  color: var(--nachtblauw);
+  color: var(--tekst);
   cursor: pointer;
 }
 /* De drie streepjes zijn één span plus ::before en ::after */
@@ -293,8 +299,8 @@ ul { padding-left: 1.2em; }
 .menu-knop span::after { transform: translateY(.45rem); }
 /* Open: de streepjes worden een kruisje */
 .menu-knop[aria-expanded="true"] span { background: transparent; }
-.menu-knop[aria-expanded="true"] span::before { transform: rotate(45deg); background: var(--nachtblauw); }
-.menu-knop[aria-expanded="true"] span::after { transform: rotate(-45deg); background: var(--nachtblauw); }
+.menu-knop[aria-expanded="true"] span::before { transform: rotate(45deg); background: var(--tekst); }
+.menu-knop[aria-expanded="true"] span::after { transform: rotate(-45deg); background: var(--tekst); }
 
 @media (max-width: 900px) {
   .menu-knop { display: block; }
@@ -310,7 +316,7 @@ ul { padding-left: 1.2em; }
     background: rgb(249 246 248 / .97);
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
-    box-shadow: 0 24px 40px -24px rgb(25 42 61 / .3);
+    box-shadow: 0 24px 40px -24px rgb(79 60 70 / .3);
     visibility: hidden;
     transition: grid-template-rows .55s var(--ease), visibility 0s .55s;
   }
@@ -379,12 +385,12 @@ main { padding-top: var(--header-h); }
 .contact-lijst .label {
   display: block;
   font-size: .8rem;
-  color: rgb(25 42 61 / .65);
+  color: var(--tekst-zacht);
 }
 .contact-lijst a,
 .contact-lijst strong {
   font-weight: 500;
-  color: var(--nachtblauw);
+  color: var(--tekst);
   text-decoration: none;
 }
 .contact-lijst a:hover { color: var(--mauve-donker); }
@@ -415,14 +421,14 @@ main { padding-top: var(--header-h); }
 
 .contact__tip {
   font-size: .9rem;
-  color: rgb(25 42 61 / .75);
+  color: var(--tekst-zacht);
 }
 
 .footer-onder {
-  border-top: 1px solid rgb(25 42 61 / .08);
+  border-top: 1px solid rgb(79 60 70 / .08);
   padding-block: 1.75rem;
   font-size: .8rem;
-  color: rgb(25 42 61 / .65);
+  color: var(--tekst-zacht);
 }
 .footer-onder .container {
   display: grid;
@@ -501,13 +507,6 @@ main { padding-top: var(--header-h); }
   max-width: 14ch;
   margin-bottom: 1.25rem;
 }
-.hero h1 em {
-  display: block;
-  font-style: italic;
-  color: var(--nachtblauw);
-  font-size: .55em;
-  margin-top: .35em;
-}
 .hero p {
   max-width: 26rem;
   font-size: 1.05rem;
@@ -529,14 +528,15 @@ main { padding-top: var(--header-h); }
 }
 
 /* Gekleurd vlak voor een behandeling (mauve of salie).
-   Lopende tekst is hier nachtblauw: wit op deze kleuren leest te moeilijk. */
+   Mauve: een paar tinten donkerder, zodat witte tekst goed leesbaar is.
+   Salie: donkere pruimtint als tekstkleur. */
 .behandeling {
   padding-block: clamp(3rem, 7vw, 6rem);
 }
-.behandeling--mauve { background: var(--mauve); }
-.behandeling--salie { background: var(--salie); }
+.behandeling--mauve { background: var(--mauve-diep); color: #fff; }
+.behandeling--salie { background: var(--salie); color: var(--tekst-diep); }
 .behandeling--mauve h2 { color: #fff; }
-.behandeling--salie h2 { color: var(--nachtblauw); }
+.behandeling--salie h2 { color: var(--tekst-diep); }
 
 .behandeling__grid {
   display: grid;
@@ -597,7 +597,9 @@ main { padding-top: var(--header-h); }
   border-radius: 50%;
   background: #fff;
 }
-.behandeling a.link-pijl { color: var(--nachtblauw); }
+.behandeling a.link-pijl { color: inherit; }   /* zelfde kleur als de tekst van het vlak */
+.behandeling a.link-pijl:hover { color: inherit; opacity: .8; }
+.behandeling--mauve .label-prijs { background: rgb(255 255 255 / .16); }
 
 @media (max-width: 800px) {
   .behandeling__grid { grid-template-columns: 1fr; }
@@ -630,7 +632,7 @@ main { padding-top: var(--header-h); }
   padding: clamp(2rem, 5vw, 4rem);
   background: var(--bg-roze);
   border-radius: var(--radius);
-  box-shadow: 0 30px 60px -30px rgb(25 42 61 / .25);
+  box-shadow: 0 30px 60px -30px rgb(79 60 70 / .25);
 }
 
 @media (max-width: 800px) {
@@ -679,7 +681,7 @@ main { padding-top: var(--header-h); }
   max-width: 40rem;
   margin: 4rem auto 0;
   font-size: .9rem;
-  color: rgb(25 42 61 / .75);
+  color: var(--tekst-zacht);
 }
 
 @media (max-width: 800px) {
@@ -704,7 +706,7 @@ main { padding-top: var(--header-h); }
   padding: 2rem;
   border-radius: var(--radius);
   background: #fff;
-  box-shadow: 0 20px 50px -35px rgb(25 42 61 / .35);
+  box-shadow: 0 20px 50px -35px rgb(79 60 70 / .35);
 }
 .kaart h3 { margin-bottom: .75rem; }
 .kaart p { font-size: .95rem; }
