@@ -66,11 +66,19 @@ Alle tekstkleuren hierboven halen dat. `--nachtblauw` (`#192a3d`) staat nog in d
 
 Beide worden geladen via Google Fonts (zie de `<head>` van elke pagina).
 
-## Salonized
+## Boekknop
 
-De boekingswidget van Salonized staat onderaan elke pagina, vlak voor `</body>`.
-Die code niet aanpassen. Let op: lokaal (op `localhost`) laadt Salonized een testversie, dus de widget
-kun je pas echt testen op het GitHub Pages adres.
+Onderaan elke pagina, vlak voor `</body>`, staat de boekknop van de eigen afsprakenomgeving (vervangt Salonized):
+
+```html
+<script src="https://studio-anja-salon.vercel.app/widget.js" defer></script>
+```
+
+Die zet rechtsonder een knop "Maak afspraak" die een boekvenster opent, zonder nieuwe pagina.
+Elke link naar `https://studio-anja-salon.vercel.app/boeken` op de site opent hetzelfde venster;
+met `?behandeling=<id>` erachter is de behandeling al gekozen.
+Het venster werkt alleen op studio-anja.nl, de subdomeinen daarvan en `localhost`.
+Krijgt de afsprakenomgeving later een eigen adres, pas dan op alle vijf de pagina's het adres in deze regel aan.
 
 ## Het stappenpad (behandelpagina)
 
