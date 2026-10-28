@@ -71,11 +71,11 @@ Beide worden geladen via Google Fonts (zie de `<head>` van elke pagina).
 Onderaan elke pagina, vlak voor `</body>`, staat de boekknop van de eigen afsprakenomgeving (vervangt Salonized):
 
 ```html
-<script src="https://studio-anja-salon.vercel.app/widget.js" defer></script>
+<script src="https://afspraak.studio-anja.nl/widget.js" defer></script>
 ```
 
 Die zet rechtsonder een knop "Maak afspraak" die een boekvenster opent, zonder nieuwe pagina.
-Elke link naar `https://studio-anja-salon.vercel.app/boeken` op de site opent hetzelfde venster;
+Elke link naar `https://afspraak.studio-anja.nl/boeken` op de site opent hetzelfde venster;
 met `?behandeling=<id>` erachter is de behandeling al gekozen.
 Het venster werkt alleen op studio-anja.nl, de subdomeinen daarvan en `localhost`.
 Krijgt de afsprakenomgeving later een eigen adres, pas dan op alle vijf de pagina's het adres in deze regel aan.
