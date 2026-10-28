@@ -64,7 +64,7 @@ Alle tekstkleuren hierboven halen dat. `--nachtblauw` (`#192a3d`) staat nog in d
 - **Playfair Display** voor koppen
 - **Montserrat** voor de lopende tekst
 
-Beide worden geladen via Google Fonts (zie de `<head>` van elke pagina).
+Beide staan op de website zelf in `assets/fonts` (variabele lettertypes, SIL Open Font License) en worden bovenaan `assets/css/style.css` ingeladen. Niet via Google Fonts: zo gaan er geen bezoekersgegevens naar Google.
 
 ## Boekknop
 
@@ -107,18 +107,11 @@ Zonder JavaScript zijn de lijnen verborgen en staan alle stappen gewoon open.
 De site staat op GitHub (`elinevlanen/studio-anja`) en wordt gepubliceerd met GitHub Pages.
 Elke `git push` naar de branch `main` zet de nieuwe versie binnen een minuut online.
 
-**Nu: testversie op `test.studio-anja.nl`**
+**Live op `studio-anja.nl` (sinds 28 oktober 2026)**
 
 - Het bestand `CNAME` vertelt GitHub op welk adres de site staat.
-- `robots.txt` houdt zoekmachines voorlopig weg.
-- Bij de domeinbeheerder staat een CNAME-record: `test` wijst naar `elinevlanen.github.io`.
-
-**Later: overstappen naar `studio-anja.nl`**
-
-1. Zet in `CNAME` het adres `studio-anja.nl`.
-2. Zet `robots.txt` terug naar "alles toestaan" (de tekst staat in het bestand zelf).
-3. Pas bij de domeinbeheerder de DNS aan voor het hoofddomein (de A-records van GitHub Pages).
-4. Zet in GitHub bij Settings > Pages het nieuwe adres en vink "Enforce HTTPS" aan.
+- DNS bij Hostinger: A-records van `@` naar 185.199.108.153 t/m 185.199.111.153, AAAA-records naar 2606:50c0:8000::153 t/m 8003::153, en `www` als CNAME naar `elinevlanen.github.io`.
+- De afsprakenomgeving staat apart op `afspraak.studio-anja.nl` (Vercel). E-mail (`anja@studio-anja.nl`) blijft bij Hostinger.
 
 ## Lokaal bekijken
 

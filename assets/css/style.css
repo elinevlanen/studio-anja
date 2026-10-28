@@ -12,6 +12,32 @@
    9. Animaties en prefers-reduced-motion
    ========================================================= */
 
+/* ---------- Lettertypes ----------
+   Staan op de website zelf (assets/fonts), niet via Google Fonts: zo gaan er geen bezoekersgegevens naar Google.
+   Het zijn variabele lettertypes: één bestand bevat alle diktes. Licentie: SIL Open Font License. */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300 500;
+  font-display: swap;
+  src: url("../fonts/montserrat-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("../fonts/playfair-display-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/playfair-display-italic-latin.woff2") format("woff2");
+}
+
+
 
 /* ---------- 1. Variabelen ---------- */
 /* Alles wat vaker terugkomt staat hier één keer.

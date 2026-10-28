@@ -1,11 +1,4 @@
-# TESTVERSIE op test.studio-anja.nl: zoekmachines mogen deze nog niet bekijken,
-# anders vindt Google de site twee keer (test en echt).
-# Zodra de site op studio-anja.nl staat, vervang je alles hieronder door:
-#
-#   User-agent: *
-#   Allow: /
-#
-#   Sitemap: https://studio-anja.nl/sitemap.xml
-
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://studio-anja.nl/sitemap.xml
