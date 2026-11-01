@@ -19,6 +19,7 @@ studio-anja/
 │   └── img/                         Foto's (WebP), logo en favicons
 ├── robots.txt                       Vertelt zoekmachines wat ze mogen bekijken
 ├── sitemap.xml                      Lijst met alle pagina's voor Google
+├── llms.txt                         Korte samenvatting van de praktijk voor AI-assistenten (ChatGPT, Claude, Perplexity). Pas aan als tarieven of tijden veranderen.
 └── README.md                        Dit bestand
 ```
 
